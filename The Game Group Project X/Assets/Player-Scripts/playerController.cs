@@ -11,15 +11,17 @@ public class playerController : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
 
+
     private bool playerGrounded;
     private Vector3 move;
     private Vector3 playerVelocity;
     private int jumpCount;
-    
+
+
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -34,10 +36,17 @@ public class playerController : MonoBehaviour
         {
             playerVelocity.y = 0f;
             jumpCount = 0;
+
+
         }
+
+
+
+
 
         move = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         characterController.Move(move * Time.deltaTime * playerSpeed);
+
 
         if (Input.GetButtonDown("Jump") && jumpCount < jumpMax)
         {
