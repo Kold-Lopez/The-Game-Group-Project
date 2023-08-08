@@ -39,8 +39,8 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
             }
         }
+          agent.SetDestination(gameManager.instance.player.transform.position);
 
-        agent.SetDestination(gameManager.instance.player.transform.position);
     }
     public void takeDamage(int amount)
     {
