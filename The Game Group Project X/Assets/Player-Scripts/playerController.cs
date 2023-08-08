@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class playerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController characterController;
 
@@ -36,6 +36,7 @@ public class playerController : MonoBehaviour
         baseSpeed = playerSpeed;
         HPMax = HP;
         StaminaMax = Stamina;
+        spawnPlayer();
     }
 
     void Update()
@@ -118,6 +119,12 @@ public class playerController : MonoBehaviour
     public void takeDamage(int amount)
     {
         HP -= amount;
+
+        updatePlayerUI();
+        if (HP <= 0)
+        {
+            gameManager.instance.youLose();
+        }
     }
 
     IEnumerator updateStam()
@@ -153,8 +160,24 @@ public class playerController : MonoBehaviour
     public void takeHealth()
     {
         HP += 30;
-
+        if(HP > HPMax)
+        {
+            HP = HPMax;
+        }
     }
 
+    public void spawnPlayer()
+    {
+        HP = HPMax;
+        updatePlayerUI();
+        characterController.enabled = false;
+        transform.position = gameManager.instance.playerSpawnPos.transform.position;
+        characterController.enabled = true;
+    }
+
+    public void updatePlayerUI()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
+    }
 }
 

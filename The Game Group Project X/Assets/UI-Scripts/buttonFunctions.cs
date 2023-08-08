@@ -13,11 +13,19 @@ public class buttonFunctions : MonoBehaviour
 
     public void restart()
     {
+        gameManager.instance.playerScript.spawnPlayer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameManager.instance.stateUnpaused();
     }
     public void quit()
     {
         Application.Quit();
+    }
+
+    public void playerRespawn()
+    {
+
+        gameManager.instance.playerScript.spawnPlayer();
+        gameManager.instance.stateUnpaused();
     }
 }

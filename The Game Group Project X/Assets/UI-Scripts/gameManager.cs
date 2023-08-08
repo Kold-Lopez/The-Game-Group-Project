@@ -7,13 +7,14 @@ using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
-
+    public GameObject playerSpawnPos;
     public GameObject player;
     public playerController playerScript;
 
     public GameObject pauseMenu;
     public GameObject activeMenu;
     public GameObject winMenu;
+    public GameObject loseMenu;
     public TextMeshProUGUI enemiesRemainingTxt;
     public Image playerHPBar;
     public Image playerStamBar;
@@ -26,6 +27,7 @@ public class gameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
     }
 
 
@@ -72,6 +74,12 @@ public class gameManager : MonoBehaviour
     {
         statePaused();
         activeMenu = winMenu;
+        activeMenu.SetActive(true);
+    }
+    public void youLose()
+    {
+        statePaused();
+        activeMenu = loseMenu;
         activeMenu.SetActive(true);
     }
 }
