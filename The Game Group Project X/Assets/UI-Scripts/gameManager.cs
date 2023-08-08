@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class gameManager : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject winMenu;
     public TextMeshProUGUI enemiesRemainingTxt;
-
+    public Image playerHPBar;
+    public Image playerStamBar;
     bool isPaused;
     int enemiesRemaining;
 
