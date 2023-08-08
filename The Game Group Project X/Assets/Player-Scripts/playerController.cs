@@ -7,9 +7,9 @@ public class playerController : MonoBehaviour
     [SerializeField] CharacterController characterController;
 
     [SerializeField] int HP;
-    [SerializeField] int Stamina;
+    [SerializeField] float Stamina;
     [SerializeField] float playerSpeed;
-    [SerializeField] float sprintMod;
+    [SerializeField] float sprintSpeed;
     [SerializeField] int jumpMax;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
@@ -19,18 +19,21 @@ public class playerController : MonoBehaviour
     [SerializeField] int shootDist;
 
     private int HPMax;
-    private int StaminaMax;
+    private float StaminaMax;
 
+    private float baseSpeed;
     private bool playerGrounded;
     private Vector3 move;
     private Vector3 playerVelocity;
     private int jumpCount;
     private bool isSprinting;
     private bool isShooting;
+    private bool stamCooldown = true;
 
 
     void Start()
     {
+        baseSpeed = playerSpeed;
         HPMax = HP;
         StaminaMax = Stamina;
     }
@@ -39,6 +42,7 @@ public class playerController : MonoBehaviour
     {
         movement();
         Sprint();
+        StartCoroutine(updateStam());
         if (Input.GetButton("Shoot") && !isShooting)
             StartCoroutine(shoot());
     }
@@ -72,19 +76,22 @@ public class playerController : MonoBehaviour
     }
     void Sprint()
     {
-        if (Input.GetButtonDown("Sprint"))
+        if (stamCooldown)
         {
-            isSprinting = true;
-            playerSpeed *= sprintMod;
+            if (Input.GetButtonDown("Sprint"))
+            {
+                isSprinting = true;
+                playerSpeed = sprintSpeed;
+            }
+            else if (Input.GetButtonUp("Sprint"))
+            {
+                isSprinting = false;
+                playerSpeed = baseSpeed;
 
+            }
         }
-        else if (Input.GetButtonUp("Sprint"))
-        {
-            isSprinting = false;
-            playerSpeed /= sprintMod;
 
-        }
-        
+
     }
 
     IEnumerator shoot()
@@ -112,4 +119,36 @@ public class playerController : MonoBehaviour
     {
         HP -= amount;
     }
+    IEnumerator updateStam()
+    {
+        if (Stamina > 10)
+        {
+            Stamina = 10;
+        }
+        if (Stamina < 0)
+        {
+            isSprinting = false;
+            playerSpeed = baseSpeed;
+            Stamina = 0;
+            stamCooldown = false;
+            yield return new WaitForSeconds(2);
+            stamCooldown = true;
+        }
+        if (isSprinting)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Stamina = Stamina - 0.1f;
+        }
+        else
+        {
+            if (Stamina < StaminaMax && stamCooldown)
+            {
+                yield return new WaitForSeconds(0.1f);
+                Stamina = Stamina + 0.05f;
+                if (Stamina > StaminaMax) { Stamina = StaminaMax; }
+            }
+        }
+    }
+
 }
+
