@@ -9,6 +9,8 @@ public class cameraControls : MonoBehaviour
     [SerializeField] int lockVertMin;
     [SerializeField] int lockVertMax;
 
+    [SerializeField] bool invertY;
+
     float xRotation;
 
     void Start()
@@ -22,6 +24,11 @@ public class cameraControls : MonoBehaviour
     {
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
+
+        if (invertY)
+            xRotation += mouseY;
+        else
+            xRotation -= mouseY;
 
         xRotation = Mathf.Clamp(xRotation, lockVertMin, lockVertMax);
 
