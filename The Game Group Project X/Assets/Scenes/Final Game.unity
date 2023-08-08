@@ -991,7 +991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8203313514592404656, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
       propertyPath: Stamina
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8203313514592404656, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
       propertyPath: sprintSpeed
