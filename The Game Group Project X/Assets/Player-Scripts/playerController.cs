@@ -41,6 +41,7 @@ public class playerController : MonoBehaviour, IDamage
 
     void Update()
     {
+        updatePlayerUI();
         movement();
         Sprint();
         StartCoroutine(updateStam());
@@ -145,14 +146,14 @@ public class playerController : MonoBehaviour, IDamage
         if (isSprinting)
         {
             yield return new WaitForSeconds(0.1f);
-            Stamina = Stamina - 0.1f;
+            Stamina = Stamina - 0.01f;
         }
         else
         {
             if (Stamina < StaminaMax && stamCooldown)
             {
                 yield return new WaitForSeconds(0.1f);
-                Stamina = Stamina + 0.05f;
+                Stamina = Stamina + 0.02f;
                 if (Stamina > StaminaMax) { Stamina = StaminaMax; }
             }
         }
@@ -177,7 +178,8 @@ public class playerController : MonoBehaviour, IDamage
 
     public void updatePlayerUI()
     {
-        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
+        gameManager.instance.playerHPBar.fillAmount = 2;
+        gameManager.instance.playerStamBar.fillAmount= (float)Stamina / StaminaMax;
     }
 }
 
