@@ -18,6 +18,10 @@ public class gameManager : MonoBehaviour
     bool isPaused;
     int enemiesRemaining;
 
+    private void Start()
+    {
+        
+    }
     void Awake()
     {
         instance = this;
