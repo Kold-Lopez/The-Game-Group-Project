@@ -23,12 +23,12 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Start()
     {
-        Gamemanager.instance.UpdateGameGoal(1);
+        gameManager.instance.UpdateGameGoal(1);
     }
 
     void Update()
     {
-        playerDir = Gamemanager.instance.Player.transform.position - transform.position;
+        playerDir = gameManager.instance.player.transform.position - transform.position;
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -40,7 +40,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
             }
         }
 
-        agent.SetDestination(Gamemanager.instance.Player.transform.position);
+        agent.SetDestination(gameManager.instance.player.transform.position);
     }
     public void takeDamage(int amount)
     {
@@ -49,7 +49,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
         StartCoroutine(flashdmg());
         if (HP <= 0)
         {
-            Gamemanager.instance.UpdateGameGoal(-1);
+            gameManager.instance.UpdateGameGoal(-1);
             Destroy(gameObject);
         }
     }

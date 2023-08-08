@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Gamemanager : MonoBehaviour
+public class gameManager : MonoBehaviour
 {
-    public static Gamemanager instance;
+    public static gameManager instance;
 
     public GameObject player;
     public playerController playerScript;
