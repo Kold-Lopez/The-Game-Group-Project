@@ -1,32 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class gameManager : MonoBehaviour
+public class Gamemanager : MonoBehaviour
 {
-    public static gameManager instance;
+    public static Gamemanager instance;
+
     public GameObject player;
     public playerController playerScript;
-    public GameObject activeMenu;
+
     public GameObject pauseMenu;
+    public GameObject activeMenu;
+    public GameObject winMenu;
+    public TextMeshProUGUI enemiesRemainingTxt;
 
     bool isPaused;
+    int enemiesRemaining;
+
     void Awake()
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript=player.GetComponent<playerController>();
+        playerScript = player.GetComponent<playerController>();
     }
 
-    
+
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") &&activeMenu==null)
+        if (Input.GetButtonDown("Cancel"))
         {
-            statePaused();      
+            statePaused();
             activeMenu = pauseMenu;
-            activeMenu.SetActive(isPaused);
-            
+            pauseMenu.SetActive(isPaused);
         }
     }
 
@@ -37,14 +43,32 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         isPaused = !isPaused;
     }
-
     public void stateUnpaused()
     {
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        isPaused= !isPaused;
+        isPaused = !isPaused;
         activeMenu.SetActive(false);
         activeMenu = null;
+    }
+
+    public void UpdateGameGoal(int amount)
+    {
+        enemiesRemaining += amount;
+        enemiesRemainingTxt.text = enemiesRemaining.ToString("F0");
+
+        if (enemiesRemaining <= 0)
+        {
+            YouWin();
+        }
+
+    }
+
+    public void YouWin()
+    {
+        statePaused();
+        activeMenu = winMenu;
+        activeMenu.SetActive(true);
     }
 }
