@@ -569,7 +569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656445361821921013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4799999, y: 0.16999996, z: 0.21000004}
+  m_LocalPosition: {x: 0.4799999, y: -0.52, z: 0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -590,7 +590,7 @@ Transform:
   - {fileID: 3158452129914700808}
   - {fileID: 5440307264097818720}
   - {fileID: 8788118961327360321}
-  m_Father: {fileID: 4147439537897129011}
+  m_Father: {fileID: 8022128815458191664}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &304005412590652533
@@ -1982,7 +1982,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8022128815458191664}
-  - {fileID: 168877532235002959}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3699,7 +3698,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.56999993, z: -0.03999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 168877532235002959}
   m_Father: {fileID: 4147439537897129011}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3852,16 +3852,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1908451017002770955}
-  HP: 0
-  Stamina: 0
+  HP: 15
+  Stamina: 15
   playerSpeed: 5
-  sprintMod: 0
+  sprintMod: 2
   jumpMax: 1
   jumpHeight: 5
   gravityValue: -3
-  shootRate: 0
-  shootDamage: 0
-  shootDist: 0
+  shootRate: 5
+  shootDamage: 5
+  shootDist: 200
 --- !u!23 &8303482615813506246
 MeshRenderer:
   m_ObjectHideFlags: 0
