@@ -112,4 +112,9 @@ public class playerController : MonoBehaviour
     {
         HP -= amount;
     }
+    public void takeHealth()
+    {
+        HP += 30;
+    }
+
 }
