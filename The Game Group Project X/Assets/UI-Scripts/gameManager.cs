@@ -32,7 +32,7 @@ public class gameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Cancel")&&activeMenu==null)
         {
             statePaused();
             activeMenu = pauseMenu;
