@@ -119,6 +119,7 @@ public class playerController : MonoBehaviour
     {
         HP -= amount;
     }
+
     IEnumerator updateStam()
     {
         if (Stamina > 10)
@@ -148,6 +149,11 @@ public class playerController : MonoBehaviour
                 if (Stamina > StaminaMax) { Stamina = StaminaMax; }
             }
         }
+
+    public void takeHealth()
+    {
+        HP += 30;
+
     }
 
 }
