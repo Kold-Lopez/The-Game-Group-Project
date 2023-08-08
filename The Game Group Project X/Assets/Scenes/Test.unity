@@ -525,6 +525,14 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: winMenu
+      value: 
+      objectReference: {fileID: 1758839673}
+    - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: loseMenu
+      value: 
+      objectReference: {fileID: 1758839672}
+    - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
       propertyPath: playerHPBar
       value: 
       objectReference: {fileID: 1758839671}
@@ -559,6 +567,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1758839672 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8332893108215522558, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+  m_PrefabInstance: {fileID: 1758839669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1758839673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2543332569757704680, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+  m_PrefabInstance: {fileID: 1758839669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2072874206
 GameObject:
   m_ObjectHideFlags: 0

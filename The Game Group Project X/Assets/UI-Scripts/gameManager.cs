@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingTxt;
     public Image playerHPBar;
     public Image playerStamBar;
+
     bool isPaused;
     int enemiesRemaining;
 

@@ -718,6 +718,14 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: winMenu
+      value: 
+      objectReference: {fileID: 1262085286}
+    - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: loseMenu
+      value: 
+      objectReference: {fileID: 1262085285}
+    - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
       propertyPath: playerHPBar
       value: 
       objectReference: {fileID: 1067133403}
@@ -725,11 +733,36 @@ PrefabInstance:
       propertyPath: playerStamBar
       value: 
       objectReference: {fileID: 51179217}
+    - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: enemiesRemainingTxt
+      value: 
+      objectReference: {fileID: 1262085284}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+--- !u!114 &1262085284 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2449654368691810927, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+  m_PrefabInstance: {fileID: 1262085283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1262085285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8332893108215522558, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+  m_PrefabInstance: {fileID: 1262085283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1262085286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2543332569757704680, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+  m_PrefabInstance: {fileID: 1262085283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1337245995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -996,6 +1029,10 @@ PrefabInstance:
     - target: {fileID: 8203313514592404656, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
       propertyPath: sprintSpeed
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203313514592404656, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
+      propertyPath: gravityValue
+      value: -9.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
