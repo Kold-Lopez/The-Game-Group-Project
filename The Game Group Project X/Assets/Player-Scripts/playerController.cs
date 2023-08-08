@@ -149,7 +149,7 @@ public class playerController : MonoBehaviour
                 if (Stamina > StaminaMax) { Stamina = StaminaMax; }
             }
         }
-
+    }
     public void takeHealth()
     {
         HP += 30;
