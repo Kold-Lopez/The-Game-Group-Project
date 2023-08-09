@@ -153,7 +153,7 @@ public class playerController : MonoBehaviour, IDamage
         if (isSprinting)
         {
             yield return new WaitForSeconds(0.1f);
-            Stamina = Stamina - 0.01f;
+            Stamina = Stamina - 0.03f;
         }
         else
         {
@@ -185,7 +185,7 @@ public class playerController : MonoBehaviour, IDamage
 
     public void updatePlayerUI()
     {
-        gameManager.instance.playerHPBar.fillAmount = 2;
+        gameManager.instance.playerHPBar.fillAmount = (float)HP/HPMax;
         gameManager.instance.playerStamBar.fillAmount= (float)Stamina / StaminaMax;
     }
 }
