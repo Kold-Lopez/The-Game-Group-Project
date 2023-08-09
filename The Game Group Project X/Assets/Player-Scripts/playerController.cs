@@ -153,7 +153,7 @@ public class playerController : MonoBehaviour, IDamage
         if (isSprinting)
         {
             yield return new WaitForSeconds(0.1f);
-            Stamina = Stamina - 0.01f;
+            Stamina = Stamina - 0.03f;
         }
         else
         {
