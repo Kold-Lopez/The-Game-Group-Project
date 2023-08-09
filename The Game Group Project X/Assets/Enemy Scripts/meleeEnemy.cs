@@ -25,6 +25,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        runAnimation = GetComponent<Animator>();
         gameManager.instance.UpdateGameGoal(1);
     }
 
@@ -36,8 +37,10 @@ public class meleeEnemy : MonoBehaviour, IDamage
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             facePlayer();
-
+            runAnimation.SetBool("attackRange", true);
         }
+        else
+            runAnimation.SetBool("attackRange", false);
         agent.SetDestination(gameManager.instance.player.transform.position);
 
     }
