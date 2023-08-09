@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
 
+    [SerializeField] GameObject GUN;
     [SerializeField] float shootRate;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
@@ -28,6 +29,7 @@ public class playerController : MonoBehaviour, IDamage
     private int jumpCount;
     private bool isSprinting;
     private bool isShooting;
+    private bool gunActive;
     private bool stamCooldown = true;
 
 
@@ -45,7 +47,12 @@ public class playerController : MonoBehaviour, IDamage
         movement();
         Sprint();
         StartCoroutine(updateStam());
-        if (Input.GetButton("Shoot") && !isShooting)
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            gunActive = !gunActive;
+            GUN.SetActive(gunActive);
+        }
+        if (Input.GetButton("Shoot") && !isShooting && gunActive)
             StartCoroutine(shoot());
     }
 
