@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class meleeEnemy : MonoBehaviour
+public class meleeEnemy : MonoBehaviour, IDamage
 {
 
     [SerializeField] Renderer model;
@@ -25,13 +25,13 @@ public class meleeEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager.instance.UpdateGameGoal(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerDir = gameManager.instance.transform.position - transform.position;
+        playerDir = gameManager.instance.player.transform.position - transform.position;
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -54,7 +54,7 @@ public class meleeEnemy : MonoBehaviour
         StartCoroutine(flashDamage());
         if (Hp <= 0)
         {
-            // gameManager.instance.updateGameGoal(-1);
+            gameManager.instance.UpdateGameGoal(-1);
             Destroy(gameObject);
         }
     }
