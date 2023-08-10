@@ -19,7 +19,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     Vector3 playerDir;
     bool isShooting;
-
+    bool playerinRange;
 
     void Start()
     {
@@ -28,16 +28,20 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        playerDir = gameManager.instance.player.transform.position - transform.position;
-
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        if(playerinRange)
         {
+          playerDir = gameManager.instance.player.transform.position - transform.position;
+
+          if (agent.remainingDistance <= agent.stoppingDistance)
+          {
             facePlayer();
             if (!isShooting)
             {
                 StartCoroutine(Shoot());
 
             }
+          }
+
         }
           agent.SetDestination(gameManager.instance.player.transform.position);
 
@@ -79,5 +83,20 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            playerinRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerinRange = false;
+        }
+    }
 
 }
