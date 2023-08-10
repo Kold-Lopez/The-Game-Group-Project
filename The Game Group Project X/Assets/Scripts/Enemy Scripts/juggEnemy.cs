@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class juggEnemy : MonoBehaviour, IDamage
+public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
 {
 
 
@@ -15,6 +15,7 @@ public class juggEnemy : MonoBehaviour, IDamage
     [SerializeField] int Hp;
     [SerializeField] float hitRate;
     [SerializeField] int speed;
+    [SerializeField] int knockbackDist;
     private Animator runAnimation;
 
 
@@ -72,6 +73,11 @@ public class juggEnemy : MonoBehaviour, IDamage
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material.color = Color.white;
+        model.material.color = Color.cyan;
+    }
+
+    void knockback(Vector3 dist)
+    {
+        dist -= gameManager.instance.player.transform.position;
     }
 }
