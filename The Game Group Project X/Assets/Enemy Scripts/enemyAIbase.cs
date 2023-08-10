@@ -29,8 +29,8 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        if(playerinRange == true)
-        {
+        //if(playerinRange)
+        //{
           playerDir = gameManager.instance.player.transform.position - transform.position;
 
           if (agent.remainingDistance <= agent.stoppingDistance)
@@ -45,7 +45,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
             //    animator.SetBool("startShooting", true);
             }
 
-        }
+       // }
           agent.SetDestination(gameManager.instance.player.transform.position);
 
     }
@@ -86,20 +86,20 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            playerinRange = true;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.CompareTag("Player"))
+    //    {
+    //        playerinRange = true;
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerinRange = false;
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        playerinRange = false;
+    //    }
+    //}
 
 }
