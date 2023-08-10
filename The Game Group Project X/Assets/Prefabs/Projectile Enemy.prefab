@@ -107,7 +107,8 @@ GameObject:
   - component: {fileID: 3473272008795423790}
   - component: {fileID: 5518926290117736339}
   - component: {fileID: 3739977331130114400}
-  m_Layer: 9
+  - component: {fileID: 5930657458743805006}
+  m_Layer: 3
   m_Name: Projectile Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 0}
   agent: {fileID: 3739977331130114400}
-  HP: 3
+  HP: 5
   speed: 7
   playerfacespeed: 10
   shootrate: 3
@@ -198,6 +199,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &5930657458743805006
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110764996064205852}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 10
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1310334722107192606
 GameObject:
   m_ObjectHideFlags: 0
