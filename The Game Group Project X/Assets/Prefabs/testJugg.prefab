@@ -853,7 +853,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6955670311500993071}
-  m_Layer: 0
+  - component: {fileID: 3592206134615864227}
+  - component: {fileID: 7160077981791230798}
+  m_Layer: 7
   m_Name: RigLPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,6 +877,40 @@ Transform:
   m_Father: {fileID: 7669827055567669045}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3592206134615864227
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035136680416838920}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7160077981791230798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035136680416838920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3771c04f38618444a8fd118a87c4f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &7133193835002563913
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +1013,7 @@ Transform:
   - {fileID: 7410420079622759181}
   - {fileID: 2068654105726176268}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &711038770936027442
 Animator:
@@ -989,10 +1025,10 @@ Animator:
   m_GameObject: {fileID: 7418640033441885289}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 152e84f306fd84d4f994be0b2beba996, type: 3}
-  m_Controller: {fileID: 9100000, guid: 5bcb783d7925f5241818005c4212897a, type: 2}
+  m_Controller: {fileID: 9100000, guid: bd44ea9b15a04a945b4f04ec77e6c5f1, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1016,8 +1052,8 @@ MonoBehaviour:
   agent: {fileID: 2826785257729150594}
   playerFaceSpeed: 3
   Hp: 20
-  hitRate: 1
-  speed: 3
+  hitRate: 0.25
+  speed: 1
 --- !u!195 &2826785257729150594
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1031,10 +1067,10 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 300
-  m_StoppingDistance: 1
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0

@@ -300,6 +300,14 @@ PrefabInstance:
       propertyPath: m_StoppingDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3310148810924844828, guid: 6c8a998fd2ca63346b60109f0134a360, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310148810924844828, guid: 6c8a998fd2ca63346b60109f0134a360, type: 3}
+      propertyPath: hitRate
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7035136680416838920, guid: 6c8a998fd2ca63346b60109f0134a360, type: 3}
       propertyPath: m_Layer
       value: 7
