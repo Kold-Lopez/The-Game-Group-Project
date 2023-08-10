@@ -1662,11 +1662,11 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   pauseMenu: {fileID: 5254722093291838768}
   activeMenu: {fileID: 0}
-  winMenu: {fileID: 0}
-  loseMenu: {fileID: 0}
-  enemiesRemainingTxt: {fileID: 0}
-  playerHPBar: {fileID: 0}
-  playerStamBar: {fileID: 0}
+  winMenu: {fileID: 2543332569757704680}
+  loseMenu: {fileID: 8332893108215522558}
+  enemiesRemainingTxt: {fileID: 2449654368691810927}
+  playerHPBar: {fileID: 6939774077134799909}
+  playerStamBar: {fileID: 5103137555425275634}
 --- !u!114 &8780469433274667408
 MonoBehaviour:
   m_ObjectHideFlags: 0
