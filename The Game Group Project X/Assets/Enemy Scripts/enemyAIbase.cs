@@ -20,6 +20,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     Vector3 playerDir;
     bool isShooting;
     bool playerinRange;
+    private Animator animator;
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        if(playerinRange)
+        if(playerinRange == true)
         {
           playerDir = gameManager.instance.player.transform.position - transform.position;
 
@@ -37,10 +38,12 @@ public class enemyAIbase : MonoBehaviour, IDamage
             facePlayer();
             if (!isShooting)
             {
+                //animator.SetBool("startShooting", true);
                 StartCoroutine(Shoot());
-
             }
-          }
+            //else
+            //    animator.SetBool("startShooting", true);
+            }
 
         }
           agent.SetDestination(gameManager.instance.player.transform.position);

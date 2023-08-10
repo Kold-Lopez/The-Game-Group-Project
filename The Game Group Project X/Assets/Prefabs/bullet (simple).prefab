@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3650622906348084404
 MonoBehaviour:
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7362216856085362963}
   damage: 1
-  speed: 2
+  speed: 10
   destroyTime: 3
 --- !u!33 &6436623525390551028
 MeshFilter:
