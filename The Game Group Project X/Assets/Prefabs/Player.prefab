@@ -1272,7 +1272,7 @@ Transform:
   m_Children:
   - {fileID: 8022128816460855046}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8203313514592404656
 MonoBehaviour:
@@ -1288,9 +1288,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 1908451018282343485}
   HP: 100
-  Stamina: 100
+  Stamina: 10
   playerSpeed: 5
-  sprintSpeed: 0
+  sprintSpeed: 7.5
   jumpMax: 1
   jumpHeight: 5
   gravityValue: -3
