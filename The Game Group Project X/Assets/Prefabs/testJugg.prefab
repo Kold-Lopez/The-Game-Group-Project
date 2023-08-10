@@ -401,7 +401,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 596903d1171a90e4dadec23bb6675124, type: 2}
+  - {fileID: 2100000, guid: 4440643e482a08f4b8f9ccecbe966408, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -985,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012419594394403867}
   - component: {fileID: 711038770936027442}
-  - component: {fileID: 3310148810924844828}
+  - component: {fileID: 2323131149672975403}
   - component: {fileID: 2826785257729150594}
   - component: {fileID: 1034732107466360699}
   m_Layer: 3
@@ -1013,7 +1013,7 @@ Transform:
   - {fileID: 7410420079622759181}
   - {fileID: 2068654105726176268}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &711038770936027442
 Animator:
@@ -1036,7 +1036,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3310148810924844828
+--- !u!114 &2323131149672975403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7418640033441885289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f376648ca36ed249a578552b7f447cb, type: 3}
+  m_Script: {fileID: 11500000, guid: f5d77168997d9e2479a51b8e0c876a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 982365716250294914}
