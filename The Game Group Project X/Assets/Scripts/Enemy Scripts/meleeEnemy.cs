@@ -8,14 +8,14 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator animator;
 
     [SerializeField] int playerFaceSpeed;
 
     [SerializeField] int Hp;
     [SerializeField] float hitRate;
     [SerializeField] int speed;
-    private Animator runAnimation;
-
+    [SerializeField] int animSpeed;
 
     Vector3 playerDir;
     bool playerInRange;
@@ -25,24 +25,25 @@ public class meleeEnemy : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        runAnimation = GetComponent<Animator>();
+        
         gameManager.instance.UpdateGameGoal(1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        float agentVel = agent.velocity.normalized.magnitude;
+        animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
         playerDir = gameManager.instance.player.transform.position - transform.position;
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             facePlayer();
+            
 
-
-            runAnimation.SetBool("attackRange", true);
         }
-        else
-            runAnimation.SetBool("attackRange", false);
+        
+        
 
 
 
