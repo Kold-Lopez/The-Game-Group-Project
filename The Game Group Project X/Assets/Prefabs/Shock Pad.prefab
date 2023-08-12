@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7e3149a33308a4cac293992def6efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shockDMG: 30
 --- !u!23 &4935509540391201052
 MeshRenderer:
   m_ObjectHideFlags: 0

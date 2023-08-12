@@ -1312,12 +1312,12 @@ MonoBehaviour:
   GUN2: {fileID: 6148840410082719209}
   activeGun: {fileID: 0}
   ReloadTime: 5
+  HasSmg: 0
   shootRate: 0.5
   shootDmg: 5
   shootRange: 200
   GUN1MagazineMAX: 18
   GUN1Magazine: 0
-  GUN1AmmoTotal: 2147483647
   StartActive: 0
   shootRate2: 0.3
   shootDmg2: 3

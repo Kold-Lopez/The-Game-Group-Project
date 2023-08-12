@@ -9,6 +9,7 @@ public class GunSystem : MonoBehaviour
     [SerializeField] GameObject GUN2;
     [SerializeField] GameObject activeGun;
     [SerializeField] int ReloadTime;
+    [SerializeField] bool HasSmg;
 
 
     [Header("----- Gun1Stats -----")]
@@ -53,7 +54,7 @@ public class GunSystem : MonoBehaviour
         {
             activateOrDeactivateGun(GUN1);
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && HasSmg == true)
         {
             activateOrDeactivateGun(GUN2);
         }

@@ -6,6 +6,7 @@ public class playerController : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController characterController;
 
+    [Header("----- PlayerStats -----")]
     [SerializeField] int HP;
     [SerializeField] float Stamina;
     [SerializeField] float playerSpeed;
@@ -13,6 +14,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpMax;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
+
+    
 
     //[SerializeField] GameObject GUN;
     //[SerializeField] float shootRate;
@@ -165,9 +168,9 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
     }
-    public void takeHealth()
+    public void takeHealth(int amount)
     {
-        HP += 30;
+        HP += amount;
         if(HP > HPMax)
         {
             HP = HPMax;

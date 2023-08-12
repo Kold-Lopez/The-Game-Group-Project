@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Medkit: {fileID: 2037862108589454415}
+  healAmount: 30
 --- !u!33 &8086130182721222716
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GUNtemp : MonoBehaviour
 {
+    [Header("----- GunObjects -----")]
     [SerializeField] GameObject GUN;
 
+    [Header("----- GunStats -----")]
     [SerializeField] float shootRate;
     [SerializeField] int shootDmg;
     [SerializeField] float shootRange;

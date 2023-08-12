@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class HealthKitPickup : MonoBehaviour
 {
+    [Header("----- MedkitObject -----")]
     [SerializeField] GameObject Medkit;
+
+    [Header("----- HealAmount -----")]
+    [Range(1, 50)][SerializeField] int healAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +24,7 @@ public class HealthKitPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.playerScript.takeHealth();
+            gameManager.instance.playerScript.takeHealth(healAmount);
             Medkit.SetActive(false);   
         }
     }
