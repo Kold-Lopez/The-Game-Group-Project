@@ -2,36 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponCasePickup : MonoBehaviour
+public class WeaponCasePickup : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameObject weaponRack;
-    [SerializeField] GameObject weapon;
-    [SerializeField] GameObject tempcurrentWeapon;
+    [Header("----- WeaponCaseObjects -----")]
+    //[SerializeField] GameObject weaponRack;
     [SerializeField] BoxCollider box;
+    [Header("----- WeaponObjects -----")]
+    [SerializeField] GameObject newWeapon;
+    [SerializeField] GameObject currentHeldWeapon;
+    
 
-    // Start is called before the first frame update
-    void Start()
+    public void Interact()
     {
-        
+        currentHeldWeapon.SetActive(false);
+        newWeapon.SetActive(true);
+        box.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //UI code go here
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            //pickupweapon
-            //gameManager.instance.playerScript.pistolActive = false;
-            tempcurrentWeapon.SetActive(false);
-            weapon.SetActive(true);
-            box.gameObject.SetActive(false);
-        }
-    }
 }

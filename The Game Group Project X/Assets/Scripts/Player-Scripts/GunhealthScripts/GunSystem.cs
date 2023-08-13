@@ -62,6 +62,10 @@ public class GunSystem : MonoBehaviour
         {
             activateOrDeactivateGun(null);
         }
+        if(GUN2.active == true)
+        {
+            HasSmg = true;
+        }
         if (Input.GetKeyDown(KeyCode.R) && gunActive)
         {
             StartCoroutine(reload());
@@ -174,4 +178,5 @@ public class GunSystem : MonoBehaviour
             GUN2AmmoTotal = GUN2AmmoTotal - ammoLoss;
         }
     }
+    
 }

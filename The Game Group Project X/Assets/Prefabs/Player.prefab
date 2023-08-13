@@ -757,6 +757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8022128816460855046}
   - component: {fileID: 8749301259433499342}
+  - component: {fileID: 4701071899479662341}
   - component: {fileID: 1059105037392189346}
   - component: {fileID: 3353011294634057986}
   m_Layer: 0
@@ -799,6 +800,20 @@ MonoBehaviour:
   lockVertMin: -90
   lockVertMax: 90
   invertY: 0
+--- !u!114 &4701071899479662341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997044290020761959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9dcbe31147e2b41b4f13682e78f4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractorSource: {fileID: 8022128816460855046}
+  InteractableRange: 3
 --- !u!20 &1059105037392189346
 Camera:
   m_ObjectHideFlags: 0
@@ -1318,7 +1333,7 @@ MonoBehaviour:
   shootRange: 200
   GUN1MagazineMAX: 18
   GUN1Magazine: 0
-  StartActive: 0
+  StartActive: 1
   shootRate2: 0.3
   shootDmg2: 3
   shootRange2: 200
