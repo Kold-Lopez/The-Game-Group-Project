@@ -28,4 +28,8 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.playerScript.spawnPlayer();
         gameManager.instance.stateUnpaused();
     }
+    public void startGame ()
+    {
+        SceneManager.LoadScene("Final Game");
+    }
 }
