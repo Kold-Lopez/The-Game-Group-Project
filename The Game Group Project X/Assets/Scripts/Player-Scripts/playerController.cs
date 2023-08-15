@@ -191,5 +191,8 @@ public class playerController : MonoBehaviour, IDamage
         gameManager.instance.playerHPBar.fillAmount = (float)HP/HPMax;
         gameManager.instance.playerStamBar.fillAmount= (float)Stamina / StaminaMax;
     }
+
+     
+
 }
 
