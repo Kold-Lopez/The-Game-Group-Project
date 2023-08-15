@@ -28,8 +28,9 @@ public class buttonFunctions : MonoBehaviour
         gameManager.instance.playerScript.spawnPlayer();
         gameManager.instance.stateUnpaused();
     }
-    public void startGame ()
+    public void loadLevel(int level)
     {
-        SceneManager.LoadScene("Final Game");
+        Time.timeScale = 1;
+        SceneManager.LoadScene(level);
     }
 }
