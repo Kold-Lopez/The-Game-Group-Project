@@ -14,8 +14,10 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpMax;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
+    [SerializeField] int coinAmount;
+    //[SerializeField] GameObject coins;
 
-    
+
 
     //[SerializeField] GameObject GUN;
     //[SerializeField] float shootRate;
@@ -31,7 +33,7 @@ public class playerController : MonoBehaviour, IDamage
     private Vector3 playerVelocity;
     private int jumpCount;
     private bool isSprinting;
-   // private bool isShooting;
+    // private bool isShooting;
     //public bool pistolActive;
     private bool stamCooldown = true;
 
@@ -50,6 +52,7 @@ public class playerController : MonoBehaviour, IDamage
         movement();
         Sprint();
         StartCoroutine(updateStam());
+        coinPickUp();
         //if (Input.GetKeyDown(KeyCode.Q))
         //{
         //    pistolActive = !pistolActive;
@@ -57,6 +60,8 @@ public class playerController : MonoBehaviour, IDamage
         //}
         //if (Input.GetButton("Shoot") && !isShooting && pistolActive)
         //    StartCoroutine(shoot());
+
+        
     }
 
     void movement()
@@ -68,10 +73,6 @@ public class playerController : MonoBehaviour, IDamage
             jumpCount = 0;
 
         }
-
-
-
-
 
         move = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward;
         characterController.Move(move * Time.deltaTime * playerSpeed);
@@ -102,8 +103,6 @@ public class playerController : MonoBehaviour, IDamage
 
             }
         }
-
-
     }
 
     //IEnumerator shoot()
@@ -171,7 +170,7 @@ public class playerController : MonoBehaviour, IDamage
     public void takeHealth(int amount)
     {
         HP += amount;
-        if(HP > HPMax)
+        if (HP > HPMax)
         {
             HP = HPMax;
         }
@@ -188,11 +187,15 @@ public class playerController : MonoBehaviour, IDamage
 
     public void updatePlayerUI()
     {
-        gameManager.instance.playerHPBar.fillAmount = (float)HP/HPMax;
-        gameManager.instance.playerStamBar.fillAmount= (float)Stamina / StaminaMax;
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
+        gameManager.instance.playerStamBar.fillAmount = (float)Stamina / StaminaMax;
+
+    }
+    public void coinPickUp()
+    {
+        
     }
 
-     
 
 }
 

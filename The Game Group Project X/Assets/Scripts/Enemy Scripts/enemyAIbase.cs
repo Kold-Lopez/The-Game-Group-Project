@@ -18,9 +18,12 @@ public class enemyAIbase : MonoBehaviour, IDamage
     [SerializeField] Transform shootpos;
 
     Vector3 playerDir;
+    Vector3 playerPos;
+    Vector3 enemyPos;
     bool isShooting;
     bool playerinRange;
     private Animator animator;
+    float angle;
 
     void Start()
     {
@@ -29,24 +32,20 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        //if(playerinRange)
-        //{
-          playerDir = gameManager.instance.player.transform.position - transform.position;
+        playerDir = gameManager.instance.player.transform.position - transform.position;
+        angle = gameManager.instance.player.transform.position.y - 2;
+        
 
-          if (agent.remainingDistance <= agent.stoppingDistance)
-          {
+        if (agent.remainingDistance <= agent.stoppingDistance)
+        {
             facePlayer();
             if (!isShooting)
             {
-                //animator.SetBool("startShooting", true);
                 StartCoroutine(Shoot());
             }
-            //else
-            //    animator.SetBool("startShooting", true);
-            }
+        }
 
-       // }
-          agent.SetDestination(gameManager.instance.player.transform.position);
+        agent.SetDestination(gameManager.instance.player.transform.position);
 
     }
     public void takeDamage(int amount)
@@ -71,35 +70,26 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void facePlayer()
     {
+        //enemyPos = shootpos.position - transform.position;
+        
+
+        //Quaternion Pangle = Quaternion.LookRotation(enemyPos);
         Quaternion rot = Quaternion.LookRotation(playerDir);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfacespeed);
-
+        
+        
     }
 
     IEnumerator Shoot()
     {
+        enemyPos.Equals(angle);
+        Quaternion ang = Quaternion.LookRotation(playerDir, enemyPos);
         isShooting = true;
-        Instantiate(bullet, shootpos.position, transform.rotation);
+        Instantiate(bullet, shootpos.position, ang);
 
         yield return new WaitForSeconds(shootrate);
         isShooting = false;
 
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.CompareTag("Player"))
-    //    {
-    //        playerinRange = true;
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerinRange = false;
-    //    }
-    //}
 
 }
