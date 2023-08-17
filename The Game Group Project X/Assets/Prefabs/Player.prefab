@@ -1311,6 +1311,7 @@ MonoBehaviour:
   jumpMax: 1
   jumpHeight: 5
   gravityValue: -3
+  coinAmount: 0
 --- !u!114 &6623848714192395598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,23 +1324,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3895638719ced8d48b1add3ecbe0f1f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GUN1: {fileID: 6298644813752181599}
-  GUN2: {fileID: 6148840410082719209}
-  activeGun: {fileID: 0}
-  ReloadTime: 5
-  HasSmg: 0
+  selectedGun: 0
+  gunList: []
+  Pistol: {fileID: 11400000, guid: 4877090607887fe46ad831f7b7e77931, type: 2}
+  gunModel: {fileID: 6298644813752181599}
+  gunModel2: {fileID: 6148840410082719209}
   shootRate: 0.5
   shootDmg: 5
   shootRange: 200
-  GUN1MagazineMAX: 18
-  GUN1Magazine: 0
+  ReloadTime: 5
+  currentAmmo: 0
+  currentReserveAmmo: 0
+  weaponName: 
   StartActive: 1
-  shootRate2: 0.3
-  shootDmg2: 3
-  shootRange2: 200
-  GUN2MagazineMAX: 28
-  GUN2Magazine: 0
-  GUN2AmmoTotal: 200
 --- !u!33 &4078959314893782836
 MeshFilter:
   m_ObjectHideFlags: 0

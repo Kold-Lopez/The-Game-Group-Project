@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2083191366767079515
 MonoBehaviour:
@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box: {fileID: 6386492274299133977}
-  newWeapon: {fileID: 0}
-  currentHeldWeapon: {fileID: 0}
+  theThompson: {fileID: 11400000, guid: e48274b01c0853e46914e30864dad5db, type: 2}
 --- !u!33 &5377292069758341831
 MeshFilter:
   m_ObjectHideFlags: 0
