@@ -21,6 +21,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     bool isShooting;
     bool playerinRange;
     private Animator animator;
+    public Spawner isspawner;
 
     void Start()
     {
@@ -57,6 +58,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
+            isspawner.HeyIdied();
             Destroy(gameObject);
         }
     }
