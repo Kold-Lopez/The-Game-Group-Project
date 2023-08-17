@@ -8,14 +8,12 @@ public class WeaponCasePickup : MonoBehaviour, IInteractable
     //[SerializeField] GameObject weaponRack;
     [SerializeField] BoxCollider box;
     [Header("----- WeaponObjects -----")]
-    [SerializeField] GameObject newWeapon;
-    [SerializeField] GameObject currentHeldWeapon;
+    [SerializeField] GUNtemp theThompson;
     
 
     public void Interact()
     {
-        currentHeldWeapon.SetActive(false);
-        newWeapon.SetActive(true);
+        gameManager.instance.gunSystem.gunPickUP(theThompson);
         box.enabled = false;
     }
 
