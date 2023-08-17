@@ -23,7 +23,11 @@ public class enemyAIbase : MonoBehaviour, IDamage
     bool isShooting;
     bool playerinRange;
     private Animator animator;
+
+    public Spawner isspawner;
+
     float angle;
+
 
     void Start()
     {
@@ -33,7 +37,9 @@ public class enemyAIbase : MonoBehaviour, IDamage
     void Update()
     {
         playerDir = gameManager.instance.player.transform.position - transform.position;
-        angle = gameManager.instance.player.transform.position.y - model.transform.position.y;
+
+       // angle = gameManager.instance.player.transform.position.y - 2;
+
         
 
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -56,6 +62,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
+            isspawner.HeyIdied();
             Destroy(gameObject);
         }
     }
@@ -82,7 +89,9 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     IEnumerator Shoot()
     {
-        enemyPos.Equals(angle-1);
+
+       //enemyPos.Equals(angle);
+
         Quaternion ang = Quaternion.LookRotation(playerDir, enemyPos);
         isShooting = true;
         Instantiate(bullet, shootpos.position, ang);
