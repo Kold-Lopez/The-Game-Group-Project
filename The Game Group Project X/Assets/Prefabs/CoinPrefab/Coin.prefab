@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b376c286daa0f4a8be1f4aa52d244e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
   coinCurr: 0
   coinMax: 9999
   coinMin: 0

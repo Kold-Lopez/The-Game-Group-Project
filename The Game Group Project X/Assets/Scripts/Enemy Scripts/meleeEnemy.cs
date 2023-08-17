@@ -20,20 +20,20 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
     Vector3 playerDir;
     bool playerInRange;
-
+    private float agentVel;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        animator.SetBool("IsDead", false);
         gameManager.instance.UpdateGameGoal(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float agentVel = agent.velocity.normalized.magnitude;
+        agentVel = agent.velocity.normalized.magnitude;
         animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
         playerDir = gameManager.instance.player.transform.position - transform.position;
 
@@ -43,7 +43,11 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
 
         }
-        agent.SetDestination(gameManager.instance.player.transform.position);
+        if(Hp > 0)
+        {
+            agent.SetDestination(gameManager.instance.player.transform.position);
+        }
+        
 
     }
 
@@ -59,9 +63,12 @@ public class meleeEnemy : MonoBehaviour, IDamage
         StartCoroutine(flashDamage());
         if (Hp <= 0)
         {
+            StartCoroutine(takeDamagAnim());
             gameManager.instance.UpdateGameGoal(-1);
             Instantiate(coin, transform.position, transform.rotation);
-            Destroy(gameObject);
+
+
+
         }
     }
 
@@ -70,5 +77,12 @@ public class meleeEnemy : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
+    }
+    IEnumerator takeDamagAnim()
+    {
+        animator.SetBool("IsDead", true);
+        //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
+        yield return new WaitForSeconds(20);
+        Destroy(gameObject);
     }
 }
