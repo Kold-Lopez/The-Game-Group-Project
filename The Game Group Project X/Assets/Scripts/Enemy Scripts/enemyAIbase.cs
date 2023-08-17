@@ -38,7 +38,11 @@ public class enemyAIbase : MonoBehaviour, IDamage
     void Update()
     {
         playerDir = gameManager.instance.player.transform.position - transform.position;
+
+
+
         angle = gameManager.instance.player.transform.position.y - 2;
+
         
 
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -71,7 +75,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
-
+        
     }
 
     void facePlayer()
@@ -88,6 +92,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     IEnumerator Shoot()
     {
+
        enemyPos.Equals(angle);
         Quaternion ang = Quaternion.LookRotation(playerDir, enemyPos);
         isShooting = true;
