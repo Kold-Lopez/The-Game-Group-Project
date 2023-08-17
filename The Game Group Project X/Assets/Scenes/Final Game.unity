@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44006854, g: 0.4885708, b: 0.5687621, a: 1}
+  m_IndirectSpecularColor: {r: 0.44006518, g: 0.48856783, b: 0.568758, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1609,6 +1609,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -80
       objectReference: {fileID: 0}
+    - target: {fileID: 2329687262182663724, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: m_Name
+      value: Loading Screen
+      objectReference: {fileID: 0}
     - target: {fileID: 4632173503240523550, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1706,6 +1710,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1262085285}
     - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: loadScreen
+      value: 
+      objectReference: {fileID: 1262085287}
+    - target: {fileID: 7590404852598119850, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
       propertyPath: playerHPBar
       value: 
       objectReference: {fileID: 1067133403}
@@ -1748,6 +1756,11 @@ GameObject:
 --- !u!1 &1262085286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2543332569757704680, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+  m_PrefabInstance: {fileID: 1262085283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1262085287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2329687262182663724, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
   m_PrefabInstance: {fileID: 1262085283}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1262085291 stripped

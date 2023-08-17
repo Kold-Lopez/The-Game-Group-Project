@@ -16,6 +16,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
     [SerializeField] float hitRate;
     [SerializeField] int speed;
     [SerializeField] int animSpeed;
+    [SerializeField] GameObject coin;
 
     Vector3 playerDir;
     bool playerInRange;
@@ -25,7 +26,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-        
+
         gameManager.instance.UpdateGameGoal(1);
     }
 
@@ -39,14 +40,9 @@ public class meleeEnemy : MonoBehaviour, IDamage
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             facePlayer();
-            
+
 
         }
-        
-        
-
-
-
         agent.SetDestination(gameManager.instance.player.transform.position);
 
     }
@@ -64,6 +60,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
         if (Hp <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
+            Instantiate(coin, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -74,19 +71,4 @@ public class meleeEnemy : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerInRange = true;
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        playerInRange = false;
-    //    }
-    //}
 }

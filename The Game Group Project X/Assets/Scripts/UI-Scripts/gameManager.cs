@@ -10,12 +10,15 @@ public class gameManager : MonoBehaviour
     public GameObject playerSpawnPos;
     public GameObject player;
     public playerController playerScript;
+    public GameObject coins;
 
     public GameObject pauseMenu;
     public GameObject activeMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public GameObject loadScreen;
     public TextMeshProUGUI enemiesRemainingTxt;
+    public GameObject damageFlash;
     public Image playerHPBar;
     public Image playerStamBar;
 
@@ -29,11 +32,14 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+        coins = GameObject.FindGameObjectWithTag("Coins");
+        StartCoroutine(load());
     }
 
-
+   
     void Update()
     {
+        
         if (Input.GetButtonDown("Cancel")&&activeMenu==null)
         {
             statePaused();
@@ -83,4 +89,19 @@ public class gameManager : MonoBehaviour
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
     }
+    IEnumerator load()
+    {
+        loadScreen.SetActive(true);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(1);
+        loadScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public IEnumerator damaged()
+    {
+        damageFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        damageFlash.SetActive(false);
+    }
+   
 }
