@@ -18,5 +18,6 @@ public class GUNtemp : ScriptableObject
     public string weaponDifferentiator;
 
     public GameObject theGUN;
+    public GameObject theBullet;
     public ParticleSystem hitEffect;
 }
