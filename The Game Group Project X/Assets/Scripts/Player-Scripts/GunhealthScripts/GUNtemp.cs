@@ -2,57 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GUNtemp : MonoBehaviour
-{
-    [Header("----- GunObjects -----")]
-    [SerializeField] GameObject GUN;
+[CreateAssetMenu]
 
-    [Header("----- GunStats -----")]
-    [SerializeField] float shootRate;
-    [SerializeField] int shootDmg;
-    [SerializeField] float shootRange;
+public class GUNtemp : ScriptableObject
+{ 
 
-    private bool gunActive;
-    private bool isShooting;
+    public float shootRate;
+    public int shootDamage;
+    public int shootDist;
+    public int currentAmmo;
+    public int weaponClipSize;
+    public int maxAmmo;
+    public int ReloadTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string weaponDifferentiator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            gunActive = !gunActive;
-            GUN.SetActive(gunActive);
-        }
-        if (Input.GetButton("Shoot") && !isShooting && gunActive)
-        {
-            StartCoroutine(shoot());
-        }
-    }
-    IEnumerator shoot()
-    {
-        isShooting = true;
-
-        //shoot something
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootRange))
-        {
-            //wall example
-            //Instantiate(wall, hit.point, transform.rotation);
-            IDamage damageable = hit.collider.GetComponent<IDamage>();
-
-            if (damageable != null)
-            {
-                damageable.takeDamage(shootDmg);
-            }
-        }
-
-        yield return new WaitForSeconds(shootRate);
-        isShooting = false;
-    }
+    public GameObject theGUN;
+    public ParticleSystem hitEffect;
 }
