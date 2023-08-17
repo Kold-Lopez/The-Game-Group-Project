@@ -2,181 +2,204 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GunSystem : MonoBehaviour
 {
-    [Header("----- GunObjects -----")]
-    [SerializeField] GameObject GUN1;
-    [SerializeField] GameObject GUN2;
-    [SerializeField] GameObject activeGun;
-    [SerializeField] int ReloadTime;
-    [SerializeField] bool HasSmg;
+    [SerializeField] int selectedGun;
 
+    [Header("----- Gun Stuff-----")]
+    [SerializeField] List<GUNtemp> gunList = new List<GUNtemp>();
+    [SerializeField] GUNtemp Pistol;
+    [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject gunModel2;
 
-    [Header("----- Gun1Stats -----")]
+    [Header("----- Current Gun Stats -----")]
     [SerializeField] float shootRate;
     [SerializeField] int shootDmg;
     [SerializeField] float shootRange;
-    [SerializeField] int GUN1MagazineMAX;
-    [SerializeField] int GUN1Magazine;
+    [SerializeField] int ReloadTime;
+    [SerializeField] int currentAmmo;
+    [SerializeField] int currentReserveAmmo;
+    [SerializeField] string weaponName;
+
+
     [SerializeField] bool StartActive;
-
-    [Header("----- Gun2Stats -----")]
-    [SerializeField] float shootRate2;
-    [SerializeField] int shootDmg2;
-    [SerializeField] float shootRange2;
-    [SerializeField] int GUN2MagazineMAX;
-    [SerializeField] int GUN2Magazine;
-    [SerializeField] int GUN2AmmoTotal;
-
-    private bool gunActive;
+    private bool isReloading;
+    private int ammoToTake;
+    private bool noAmmo;
     private bool isShooting;
-    private bool noAmmo1;
-    private bool noAmmo2;
-    // Start is called before the first frame update
+
+    //// Start is called before the first frame update
     void Start()
     {
         if(StartActive == true)
         {
-            GUN1.SetActive(StartActive);
-            gunActive = true;
+            gunList.Add(Pistol);
+
+            shootDmg = Pistol.shootDamage;
+            shootRange = Pistol.shootDist;
+            shootRate = Pistol.shootRate;
+            currentReserveAmmo = Pistol.maxAmmo; //ammo tracking convience
+            ReloadTime = Pistol.ReloadTime;
+            weaponName = Pistol.weaponDifferentiator;
+
+            Pistol.currentAmmo = Pistol.weaponClipSize;
+            currentAmmo = Pistol.currentAmmo; //ammo tracking convience
+
+            isShooting = false;
+
+            gunModel.SetActive(true);
+            //replace setActive with an animation
+
+            selectedGun = gunList.Count - 1;
+
         }
-        GUN1Magazine = GUN1MagazineMAX;
-      
-        GUN2.SetActive(false);
-        GUN2Magazine = GUN2MagazineMAX;
+        
     }
 
-    // Update is called once per frame
+    void selectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            changeGun();
+            //Update UI
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            changeGun();
+            //Update UI
+        }
+    }
+    void changeGun()
+    {
+        shootDmg = gunList[selectedGun].shootDamage;
+        shootRange = gunList[selectedGun].shootDist;
+        shootRate = gunList[selectedGun].shootRate;
+        ReloadTime = gunList[selectedGun].ReloadTime;
+        //pulling out weapon animation
+
+        if (gunList[selectedGun].weaponDifferentiator == "Pistol")
+        {
+            gunModel2.SetActive(false);
+            gunModel.SetActive(true);
+        }
+        else if (gunList[selectedGun].weaponDifferentiator == "Thompson")
+        {
+            gunModel.SetActive(false);
+            gunModel2.SetActive(true);
+        }
+
+    }
+
+    //// Update is called once per frame
     void Update()
     {
-        //activate weapons
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            activateOrDeactivateGun(GUN1);
-        }
-        if (Input.GetKeyDown(KeyCode.Z) && HasSmg == true)
-        {
-            activateOrDeactivateGun(GUN2);
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            activateOrDeactivateGun(null);
-        }
-        if(GUN2.active == true)
-        {
-            HasSmg = true;
-        }
-        if (Input.GetKeyDown(KeyCode.R) && gunActive)
-        {
-            StartCoroutine(reload());
-            if(activeGun == GUN1)
-            {
-                noAmmo1 = false;
-            }
-            else if(activeGun == GUN2)
-            {
-                noAmmo2 = false;
-            }
-        }
-        //when magazine drops to zero
-        if(GUN1Magazine <= 0)
-        {
-            noAmmo1 = true;
-        }
-        if (GUN2Magazine <= 0)
-        {
-            noAmmo2 = true;
-        }
+          //activate weapons
+        selectGun();
+       if (Input.GetKeyDown(KeyCode.R) && gunList.Count > 0 && !isReloading)
+       {
+           StartCoroutine(Reload());
+           noAmmo = false;
+       }
+       //when magazine drops to zero
+       if(gunList[selectedGun].currentAmmo == 0)
+       {
+           noAmmo = true;
+       }
+       else
+       {
+           noAmmo = false;
+       }
+
         //shooting
-        if (Input.GetButton("Shoot") && !isShooting && gunActive)
+        if (gunList.Count > 0 && Input.GetButton("Shoot") && !isShooting)
         {
-            if (GUN1.active == true && noAmmo1 == true)
-            {
-                //start animation here
-                StartCoroutine(reload());
-                noAmmo1 = false;
-            }
-            else if (GUN2.active == true && noAmmo2 == true)
-            {   
-                StartCoroutine(reload());
-                noAmmo2 = false;
-            }
-            else if(GUN1.active == true && noAmmo1 == false || GUN2.active == true && noAmmo2 == false)
-            {
-                StartCoroutine(shoot());
-            }
+              StartCoroutine(shoot());
         }
+
+        currentAmmo = gunList[selectedGun].currentAmmo; //ammo tracking convience
+        currentReserveAmmo = gunList[selectedGun].maxAmmo; //ammo tracking convience
     }
-    void activateOrDeactivateGun(GameObject gunToActivate)
-    {
-        if(gunToActivate != null) 
-        { 
-            GUN1.SetActive(false);
-            GUN2.SetActive(false);
-            gunToActivate.SetActive(true);
-            gunActive = true;
-        }
-        else if(gunToActivate == null)
-        {
-            GUN1.SetActive(false);
-            GUN2.SetActive(false);
-            gunActive = false;
-        }
-    }
+
     IEnumerator shoot()
     {
         isShooting = true;
-
         //shoot something
         RaycastHit hit;
-        if(GUN1.active == true)
-        {
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootRange))
-            {
-                IDamage damageable = hit.collider.GetComponent<IDamage>();
-                GUN1Magazine -= 1;
 
+        if (noAmmo == false)
+        {
+            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, gunList[selectedGun].shootDist))
+            {
+                //add muzzleflash and gun kick animations here
+                IDamage damageable = hit.collider.GetComponent<IDamage>();
+                gunList[selectedGun].currentAmmo--;
                 if (damageable != null)
                 {
-                    damageable.takeDamage(shootDmg);
+                    damageable.takeDamage(gunList[selectedGun].shootDamage);
                 }
             }
+            yield return new WaitForSeconds(gunList[selectedGun].shootRate);
 
-            yield return new WaitForSeconds(shootRate);
+            isShooting = false;
         }
-        if (GUN2.active == true)
-        {
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootRange2))
-            {
-                IDamage damageable = hit.collider.GetComponent<IDamage>();
-                GUN2Magazine -= 1;
-
-                if (damageable != null)
-                {
-                    damageable.takeDamage(shootDmg2);
-                }
-            }
-
-            yield return new WaitForSeconds(shootRate2);
-        }
-
-        isShooting = false;
+        //else gun no shoot sfx
     }
-    IEnumerator reload()
+    IEnumerator Reload()
     {
-        //or start animation here
-        yield return new WaitForSeconds(ReloadTime);
-        if (GUN1.active == true)
+        isReloading = true;
+        if(gunList[selectedGun].maxAmmo > 0)
         {
-            GUN1Magazine = GUN1MagazineMAX;
-        }
+            if(gunList[selectedGun].weaponDifferentiator == "Pistol")
+            {
+                gunModel.SetActive(false);
+                //replace setactive with animation here
 
-        if (GUN2.active == true)
-        {
-            int ammoLoss = GUN2MagazineMAX - GUN2Magazine;
-            GUN2Magazine = GUN2MagazineMAX;
-            GUN2AmmoTotal = GUN2AmmoTotal - ammoLoss;
+            }
+            else if(gunList[selectedGun].weaponDifferentiator == "Thompson")
+            {
+                gunModel2.SetActive(false);
+                //replace setactive with animation here
+            }
+            ammoToTake = gunList[selectedGun].weaponClipSize - gunList[selectedGun].currentAmmo;
+            yield return new WaitForSeconds(gunList[selectedGun].ReloadTime);
+            gunList[selectedGun].maxAmmo -= ammoToTake;
+            gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+            if (gunList[selectedGun].weaponDifferentiator == "Pistol")
+            {
+                gunModel.SetActive(true);
+                //replace setactive with animation here
+            }
+            else if (gunList[selectedGun].weaponDifferentiator == "Thompson")
+            {
+                gunModel2.SetActive(true);
+                //replace setactive with animation here
+            }
+
         }
+        isReloading = false;
     }
-    
+    public void gunPickUP(GUNtemp gun)
+    {
+        gunList.Add(gun);
+
+        shootDmg = gun.shootDamage;
+        shootRange = gun.shootDist;
+        shootRate = gun.shootRate;
+        weaponName = gun.weaponDifferentiator;
+
+        gun.currentAmmo = gun.weaponClipSize;
+
+        ReloadTime = gun.ReloadTime;
+        isShooting = false;
+
+        gunModel.SetActive(false);
+        gunModel2.SetActive(true);
+
+        selectedGun = gunList.Count - 1;
+
+    }
+
 }

@@ -10,6 +10,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerSpawnPos;
     public GameObject player;
     public playerController playerScript;
+    public GunSystem gunSystem;
     public GameObject coins;
 
     public GameObject pauseMenu;
@@ -31,6 +32,7 @@ public class gameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        gunSystem = player.GetComponent<GunSystem>();
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
         StartCoroutine(load());
