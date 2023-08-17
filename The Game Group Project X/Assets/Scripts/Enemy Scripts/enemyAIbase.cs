@@ -13,6 +13,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     [SerializeField] int speed;
     [SerializeField] int playerfacespeed;
 
+
     [SerializeField] float shootrate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootpos;
@@ -37,7 +38,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     void Update()
     {
         playerDir = gameManager.instance.player.transform.position - transform.position;
-       // angle = gameManager.instance.player.transform.position.y - 2;
+        angle = gameManager.instance.player.transform.position.y - 2;
         
 
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -87,7 +88,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     IEnumerator Shoot()
     {
-       //enemyPos.Equals(angle);
+       enemyPos.Equals(angle);
         Quaternion ang = Quaternion.LookRotation(playerDir, enemyPos);
         isShooting = true;
         Instantiate(bullet, shootpos.position, ang);
