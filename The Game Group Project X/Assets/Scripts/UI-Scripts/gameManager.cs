@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     public GameObject loseMenu;
     public GameObject loadScreen;
     public TextMeshProUGUI enemiesRemainingTxt;
+    public GameObject damageFlash;
     public Image playerHPBar;
     public Image playerStamBar;
 
@@ -95,6 +96,12 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         loadScreen.SetActive(false);
         Time.timeScale = 1;
+    }
+    public IEnumerator damaged()
+    {
+        damageFlash.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        damageFlash.SetActive(false);
     }
    
 }
