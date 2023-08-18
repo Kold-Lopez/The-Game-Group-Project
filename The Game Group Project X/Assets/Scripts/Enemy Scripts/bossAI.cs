@@ -3,32 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class meleeEnemy : MonoBehaviour, IDamage
+public class bossAI : MonoBehaviour, IDamage
 {
-
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
 
-    [SerializeField] int playerFaceSpeed;
+    [Header("-----Stats-----")]
 
-    [SerializeField] int Hp;
+    [SerializeField] int HP;
+    [SerializeField] int playerfacespeed;
+
+
+    [Header("-----Gun Phase-----")]
+    [SerializeField] float shootrate;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform shootpos;
+
+    [Header("----Animation-----")]
     [SerializeField] float hitRate;
     [SerializeField] int speed;
     [SerializeField] int animSpeed;
-    [SerializeField] GameObject coin;
 
     Vector3 playerDir;
     bool playerInRange;
     private float agentVel;
-    Collider collider;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<Collider>();
-        animator.SetBool("IsDead", false);
         gameManager.instance.UpdateGameGoal(1);
     }
 
@@ -36,54 +39,36 @@ public class meleeEnemy : MonoBehaviour, IDamage
     void Update()
     {
         agentVel = agent.velocity.normalized.magnitude;
-        animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
         playerDir = gameManager.instance.player.transform.position - transform.position;
+        animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             facePlayer();
-
-
-        }
-        if(Hp > 0)
-        {
-            agent.SetDestination(gameManager.instance.player.transform.position);
+            agent.velocity.Equals(2);
         }
         
-
+            
+        
     }
-
     void facePlayer()
     {
         Quaternion rot = Quaternion.LookRotation(playerDir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerFaceSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfacespeed);
     }
-
     public void takeDamage(int amount)
     {
-        Hp -= amount;
+        HP -= amount;
         StartCoroutine(flashDamage());
-        if (Hp <= 0)
+        if (HP <= 0)
         {
-            StartCoroutine(takeDamagAnim());
             gameManager.instance.UpdateGameGoal(-1);
-            Instantiate(coin, transform.position, transform.rotation);
-
         }
     }
-
     IEnumerator flashDamage()
     {
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
-    }
-    IEnumerator takeDamagAnim()
-    {
-        animator.SetBool("IsDead", true);
-        collider.enabled = false;
-        //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
-        yield return new WaitForSeconds(5);
-        Destroy(gameObject);
     }
 }
