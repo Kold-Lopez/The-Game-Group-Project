@@ -11,6 +11,7 @@ public class bossAI : MonoBehaviour, IDamage
 
     [Header("-----Stats-----")]
 
+    
     [SerializeField] int HP;
     [SerializeField] int playerfacespeed;
 
@@ -28,24 +29,23 @@ public class bossAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     bool playerInRange;
     private float agentVel;
+    private int startingHP;
 
     // Start is called before the first frame update
     void Start()
     {
+        startingHP = HP;
         gameManager.instance.UpdateGameGoal(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        agentVel = agent.velocity.normalized.magnitude;
         playerDir = gameManager.instance.player.transform.position - transform.position;
-        animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             facePlayer();
-            agent.velocity.Equals(2);
         }
         
             
@@ -70,5 +70,12 @@ public class bossAI : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
+    }
+    public void phaseDecider()
+    {
+        if(startingHP * 0.75 <= HP)
+        {
+
+        }
     }
 }
