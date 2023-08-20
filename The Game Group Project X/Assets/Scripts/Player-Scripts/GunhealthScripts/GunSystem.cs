@@ -12,6 +12,9 @@ public class GunSystem : MonoBehaviour
     [SerializeField] GUNtemp Pistol;
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject gunModel2;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform pistolShootPos;
+    [SerializeField] Transform thompsonShootPos;
 
     [Header("----- Current Gun Stats -----")]
     [SerializeField] float shootRate;
@@ -101,7 +104,7 @@ public class GunSystem : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.R) && gunList.Count > 0 && !isReloading)
        {
            StartCoroutine(Reload());
-           noAmmo = false;
+           
        }
        //when magazine drops to zero
        if(gunList[selectedGun].currentAmmo == 0)
@@ -134,6 +137,14 @@ public class GunSystem : MonoBehaviour
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, gunList[selectedGun].shootDist))
             {
                 //add muzzleflash and gun kick animations here
+                if(gunList[selectedGun].weaponDifferentiator == "Pistol")
+                {
+                    Instantiate(bullet, pistolShootPos.position, transform.rotation);
+                }
+                else if(gunList[selectedGun].weaponDifferentiator == "Thompson")
+                {
+                    Instantiate(bullet, thompsonShootPos.position, transform.rotation);
+                }
                 IDamage damageable = hit.collider.GetComponent<IDamage>();
                 gunList[selectedGun].currentAmmo--;
                 if (damageable != null)
@@ -163,10 +174,13 @@ public class GunSystem : MonoBehaviour
                 gunModel2.SetActive(false);
                 //replace setactive with animation here
             }
+
             ammoToTake = gunList[selectedGun].weaponClipSize - gunList[selectedGun].currentAmmo;
+            gunList[selectedGun].currentAmmo = 0;
             yield return new WaitForSeconds(gunList[selectedGun].ReloadTime);
             gunList[selectedGun].maxAmmo -= ammoToTake;
             gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+
             if (gunList[selectedGun].weaponDifferentiator == "Pistol")
             {
                 gunModel.SetActive(true);
@@ -179,6 +193,8 @@ public class GunSystem : MonoBehaviour
             }
 
         }
+        isShooting = false;
+        noAmmo = false;
         isReloading = false;
     }
     public void gunPickUP(GUNtemp gun)

@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 
 public class GUNtemp : ScriptableObject
-{ 
-
+{
     public float shootRate;
     public int shootDamage;
     public int shootDist;
@@ -18,6 +17,5 @@ public class GUNtemp : ScriptableObject
     public string weaponDifferentiator;
 
     public GameObject theGUN;
-    public GameObject theBullet;
     public ParticleSystem hitEffect;
 }
