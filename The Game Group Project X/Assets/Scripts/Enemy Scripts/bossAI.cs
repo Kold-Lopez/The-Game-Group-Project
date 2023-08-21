@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,9 +18,14 @@ public class bossAI : MonoBehaviour, IDamage
 
 
     [Header("-----Gun Phase-----")]
-    [SerializeField] float shootrate;
+    [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
-    [SerializeField] Transform shootpos;
+    [SerializeField] Transform shootPosLE;
+    [SerializeField] Transform shootPosRE;
+    [SerializeField] Transform shootPosRA;
+    [SerializeField] Transform shootPosLA;
+    [SerializeField] Transform shootPosGut;
+
 
     [Header("----Animation-----")]
     [SerializeField] float hitRate;
@@ -30,26 +36,44 @@ public class bossAI : MonoBehaviour, IDamage
     bool playerInRange;
     private float agentVel;
     private int startingHP;
+    private bool isShooting;
 
     // Start is called before the first frame update
     void Start()
     {
         startingHP = HP;
         gameManager.instance.UpdateGameGoal(1);
+        animator.SetBool("Punch", false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //agentVel = 1;
         playerDir = gameManager.instance.player.transform.position - transform.position;
-
+        
+        
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
             facePlayer();
+            if (HP <= 999 && HP > 501)
+            {
+                StartCoroutine(phase1());
+            }
+            if(HP <= 500)
+            {
+                if (!isShooting)
+                {
+                    StartCoroutine(phase2());
+                }
+            }
         }
         
-            
         
+
+
+
     }
     void facePlayer()
     {
@@ -71,11 +95,29 @@ public class bossAI : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
     }
-    public void phaseDecider()
+    //IEnumerator phases()
+    //{
+    //    yield return new WaitForSeconds(5);
+    //    animator.SetFloat("Speed", Random.value);
+    //    yield return new WaitForSeconds(5);
+    //}
+    IEnumerator phase1()
     {
-        if(startingHP * 0.75 <= HP)
-        {
+        animator.SetBool("Punch", true);
+        yield return new WaitForSeconds(2);
+    }
+    IEnumerator phase2()
+    {
+        //Purpose overwhelm the player
+        animator.SetBool("Punch", false);
+        isShooting = true;
 
-        }
+        Instantiate(bullet, shootPosLE.position, transform.rotation);
+        Instantiate(bullet, shootPosRE.position, transform.rotation);
+        Instantiate(bullet, shootPosLA.position, transform.rotation);
+        Instantiate(bullet, shootPosRA.position, transform.rotation);
+        Instantiate(bullet, shootPosGut.position, transform.rotation);
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
     }
 }
