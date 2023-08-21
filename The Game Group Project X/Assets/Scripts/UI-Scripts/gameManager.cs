@@ -17,8 +17,9 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
-    public GameObject loadScreen;
     public TextMeshProUGUI enemiesRemainingTxt;
+    public TextMeshProUGUI ammoCur;
+    public TextMeshProUGUI ammoMax;
     public GameObject damageFlash;
     public Image playerHPBar;
     public Image playerStamBar;
@@ -37,8 +38,6 @@ public class gameManager : MonoBehaviour
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
-        StartCoroutine(load());
     }
 
    
@@ -93,14 +92,6 @@ public class gameManager : MonoBehaviour
         statePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
-    }
-    IEnumerator load()
-    {
-        loadScreen.SetActive(true);
-        Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(1);
-        loadScreen.SetActive(false);
-        Time.timeScale = 1;
     }
     public IEnumerator damaged()
     {
