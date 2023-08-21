@@ -11,7 +11,7 @@ public class TheInteractor : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform InteractorSource;
-    public float InteractableRange;
+    public float InteractableRange = 20;
 
 
     // Update is called once per frame

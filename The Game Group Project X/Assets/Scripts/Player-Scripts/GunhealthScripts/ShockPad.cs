@@ -9,18 +9,6 @@ public class ShockPad : MonoBehaviour
     private int shockingTimer = 2;
     private bool shocking = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         //create enemy tag so we can shock them too
