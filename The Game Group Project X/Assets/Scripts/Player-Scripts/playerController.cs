@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class playerController : MonoBehaviour, IDamage
@@ -18,12 +19,6 @@ public class playerController : MonoBehaviour, IDamage
     //[SerializeField] GameObject coins;
 
 
-
-    //[SerializeField] GameObject GUN;
-    //[SerializeField] float shootRate;
-    //[SerializeField] int shootDamage;
-    //[SerializeField] int shootDist;
-
     private int HPMax;
     private float StaminaMax;
 
@@ -33,8 +28,6 @@ public class playerController : MonoBehaviour, IDamage
     private Vector3 playerVelocity;
     private int jumpCount;
     private bool isSprinting;
-    // private bool isShooting;
-    //public bool pistolActive;
     private bool stamCooldown = true;
 
 
@@ -53,15 +46,6 @@ public class playerController : MonoBehaviour, IDamage
         Sprint();
         StartCoroutine(updateStam());
         coinPickUp();
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-        //    pistolActive = !pistolActive;
-        //    GUN.SetActive(pistolActive);
-        //}
-        //if (Input.GetButton("Shoot") && !isShooting && pistolActive)
-        //    StartCoroutine(shoot());
-
-        
     }
 
     void movement()
@@ -104,28 +88,6 @@ public class playerController : MonoBehaviour, IDamage
             }
         }
     }
-
-    //IEnumerator shoot()
-    //{
-    //    isShooting = true;
-
-    //    //shoot something
-
-    //    RaycastHit hit;
-
-    //    if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-    //    {
-    //        IDamage damageable = hit.collider.GetComponent<IDamage>();
-
-    //        if (damageable != null)
-    //        {
-    //            damageable.takeDamage(shootDamage);
-    //        }
-    //    }
-
-    //    yield return new WaitForSeconds(shootRate);
-    //    isShooting = false;
-    //}
     public void takeDamage(int amount)
     {
         HP -= amount;
