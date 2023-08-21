@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public GameObject damageFlash;
     public Image playerHPBar;
     public Image playerStamBar;
+    public audioManager audioManager;
 
     bool isPaused;
     int enemiesRemaining;
@@ -35,6 +36,8 @@ public class gameManager : MonoBehaviour
         gunSystem = player.GetComponent<GunSystem>();
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
         StartCoroutine(load());
     }
 

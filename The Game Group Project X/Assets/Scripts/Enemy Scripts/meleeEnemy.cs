@@ -21,11 +21,12 @@ public class meleeEnemy : MonoBehaviour, IDamage
     Vector3 playerDir;
     bool playerInRange;
     private float agentVel;
-
+    Collider collider;
 
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<Collider>();
         animator.SetBool("IsDead", false);
         gameManager.instance.UpdateGameGoal(1);
     }
@@ -67,13 +68,12 @@ public class meleeEnemy : MonoBehaviour, IDamage
             gameManager.instance.UpdateGameGoal(-1);
             Instantiate(coin, transform.position, transform.rotation);
 
-
-
         }
     }
 
     IEnumerator flashDamage()
     {
+        gameManager.instance.audioManager.PlaySound(gameManager.instance.audioManager.hitClip);
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
@@ -81,8 +81,9 @@ public class meleeEnemy : MonoBehaviour, IDamage
     IEnumerator takeDamagAnim()
     {
         animator.SetBool("IsDead", true);
+        collider.enabled = false;
         //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }

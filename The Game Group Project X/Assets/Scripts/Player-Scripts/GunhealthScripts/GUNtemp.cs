@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 
 public class GUNtemp : ScriptableObject
-{ 
-
+{
     public float shootRate;
     public int shootDamage;
     public int shootDist;
