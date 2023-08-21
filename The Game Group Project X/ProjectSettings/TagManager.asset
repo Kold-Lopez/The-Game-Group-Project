@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player Spawn Pos
   - Coins
+  - Audio
   layers:
   - Default
   - TransparentFX

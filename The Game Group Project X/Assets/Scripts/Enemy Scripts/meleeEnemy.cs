@@ -22,11 +22,12 @@ public class meleeEnemy : MonoBehaviour, IDamage
     bool playerInRange;
     private float agentVel;
     Collider collider;
-
+    audioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
         collider = GetComponent<Collider>();
         animator.SetBool("IsDead", false);
         gameManager.instance.UpdateGameGoal(1);
@@ -74,6 +75,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
     IEnumerator flashDamage()
     {
+        audioManager.PlaySound(audioManager.hitClip);
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
