@@ -8,6 +8,8 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] CharacterController characterController;
 
     [Header("----- PlayerStats -----")]
+    
+
     [SerializeField] int HP;
     [SerializeField] float Stamina;
     [SerializeField] float playerSpeed;
@@ -16,6 +18,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
     [SerializeField] int coinAmount;
+
     //[SerializeField] GameObject coins;
 
 
@@ -151,7 +154,15 @@ public class playerController : MonoBehaviour, IDamage
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / HPMax;
         gameManager.instance.playerStamBar.fillAmount = (float)Stamina / StaminaMax;
-
+        gameManager.instance.ammoCur.text = GunSystem.currentAmmo.ToString("F0");
+        if (GunSystem.currentReserveAmmo > 1000)
+        {
+            gameManager.instance.ammoMax.text = "INF";
+        }
+        else
+        {
+            gameManager.instance.ammoMax.text = GunSystem.currentReserveAmmo.ToString("F0");
+        }       
     }
     public void coinPickUp()
     {

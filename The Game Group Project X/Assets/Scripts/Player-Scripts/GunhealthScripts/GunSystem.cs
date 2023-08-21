@@ -21,8 +21,8 @@ public class GunSystem : MonoBehaviour
     [SerializeField] int shootDmg;
     [SerializeField] float shootRange;
     [SerializeField] int ReloadTime;
-    [SerializeField] int currentAmmo;
-    [SerializeField] int currentReserveAmmo;
+    public static int currentAmmo;
+    public static int currentReserveAmmo;
     [SerializeField] string weaponName;
 
 
