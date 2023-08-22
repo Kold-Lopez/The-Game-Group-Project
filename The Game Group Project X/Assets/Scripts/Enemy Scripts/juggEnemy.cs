@@ -18,7 +18,7 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
     [SerializeField] int knockbackDist;
     private Animator runAnimation;
 
-
+    public waveSpawner whereISpawnedWave;
     Vector3 playerDir;
     bool playerInRange;
 

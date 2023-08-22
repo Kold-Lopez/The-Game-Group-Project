@@ -18,6 +18,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
     [SerializeField] int animSpeed;
     [SerializeField] GameObject coin;
 
+    public waveSpawner whereISpawnedWave;
     Vector3 playerDir;
     bool playerInRange;
     private float agentVel;
@@ -44,11 +45,11 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
 
         }
-        if(Hp > 0)
+        if (Hp > 0)
         {
             agent.SetDestination(gameManager.instance.player.transform.position);
         }
-        
+
 
     }
 
@@ -73,7 +74,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
     IEnumerator flashDamage()
     {
-        gameManager.instance.audioManager.PlaySound(gameManager.instance.audioManager.hitClip);
+        // gameManager.instance.audioManager.PlaySound(gameManager.instance.audioManager.hitClip);
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;

@@ -26,10 +26,12 @@ public class gameManager : MonoBehaviour
     public Image playerStamBar;
     public audioManager audioManager;
 
+
     bool isPaused;
+    int totalWaves = 2;
     int enemiesRemaining;
 
-    
+
     void Awake()
     {
         instance = this;
@@ -39,13 +41,15 @@ public class gameManager : MonoBehaviour
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+        StartCoroutine(load());
     }
 
-   
+
     void Update()
     {
-        
-        if (Input.GetButtonDown("Cancel")&&activeMenu==null)
+
+        if (Input.GetButtonDown("Cancel") && activeMenu == null)
         {
             statePaused();
             activeMenu = pauseMenu;
@@ -75,7 +79,7 @@ public class gameManager : MonoBehaviour
         enemiesRemaining += amount;
         enemiesRemainingTxt.text = enemiesRemaining.ToString("F0");
 
-        if (enemiesRemaining <= 0)
+        if (enemiesRemaining <= 0 && waveManager.instance.waveCurrent == totalWaves)
         {
             YouWin();
         }
@@ -100,5 +104,5 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         damageFlash.SetActive(false);
     }
-   
+
 }
