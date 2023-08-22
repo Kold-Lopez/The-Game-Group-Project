@@ -162,7 +162,8 @@ public class playerController : MonoBehaviour, IDamage
         else
         {
             gameManager.instance.ammoMax.text = GunSystem.currentReserveAmmo.ToString("F0");
-        }       
+        }
+        gameManager.instance.coinCount.text = coinAmount.ToString("F0");
     }
     public void coinPickUp()
     {
