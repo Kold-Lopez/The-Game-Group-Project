@@ -1052,8 +1052,9 @@ MonoBehaviour:
   agent: {fileID: 2826785257729150594}
   playerFaceSpeed: 3
   Hp: 20
-  hitRate: 0.25
+  hitRate: 4
   speed: 1
+  knockbackDist: 0
 --- !u!195 &2826785257729150594
 NavMeshAgent:
   m_ObjectHideFlags: 0

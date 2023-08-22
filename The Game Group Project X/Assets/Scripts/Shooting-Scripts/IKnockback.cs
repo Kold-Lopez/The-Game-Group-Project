@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IKnockback
 {
-    void knockback(int dist);
+    void knockback(Vector3 dist);
 }

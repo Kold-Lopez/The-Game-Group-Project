@@ -9,6 +9,7 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
 
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator animator;
 
     [SerializeField] int playerFaceSpeed;
 
@@ -28,7 +29,7 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
     void Start()
     {
         runAnimation = GetComponent<Animator>();
-        gameManager.instance.UpdateGameGoal(1);
+        gameManager.instance.UpdateGameGoal(3);
     }
 
     // Update is called once per frame
@@ -76,8 +77,17 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
         model.material.color = Color.cyan;
     }
 
-    void knockback(Vector3 dist)
+    private void OnCollisionEnter(Collision collision)
     {
-        dist -= gameManager.instance.player.transform.position;
+        
     }
+    //void knockback(Vector3 dist)
+    //{
+    //    if (playerInRange)
+    //    {
+    //        gameManager.instance.player.transform.position -= dist;
+    //    }
+
+    //}
+
 }
