@@ -29,6 +29,8 @@ public class coinPickup : MonoBehaviour
     {
         int total = Random.Range(min, max);
 
+        gameManager.instance.playerScript.coinPickUp(total);
+
         coinCurr += total;
 
         Debug.Log(coinCurr);
