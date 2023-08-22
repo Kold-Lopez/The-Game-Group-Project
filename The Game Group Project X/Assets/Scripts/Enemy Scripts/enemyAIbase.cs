@@ -102,5 +102,11 @@ public class enemyAIbase : MonoBehaviour, IDamage
         isShooting = false;
 
     }
+    /*
+    public void createBullet()
+    {
+        Instantiate(bullet, shootpos.position, transform.rotation);
 
+    }
+     */
 }
