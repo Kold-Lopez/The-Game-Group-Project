@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,7 +27,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     private Animator animator;
 
     public Spawner isspawner;
-
+    Vector3 angleNew;
     float angle;
 
 
@@ -37,13 +38,13 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        playerDir = gameManager.instance.player.transform.position - transform.position;
+        playerDir = gameManager.instance.player.transform.position - model.transform.position;
 
+        //angleNew = gameManager.instance.player.transform.position.y - shootpos.transform.position.y;
 
+        //angle = Mathf.Lerp(playerDir.x, playerDir.y, speed);
 
-        angle = gameManager.instance.player.transform.position.y - 2;
-
-        
+        //playerDir.Equals(angle);
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -65,7 +66,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
-            isspawner.HeyIdied();
+            //isspawner.HeyIdied();
             Destroy(gameObject);
         }
     }
@@ -86,8 +87,6 @@ public class enemyAIbase : MonoBehaviour, IDamage
         //Quaternion Pangle = Quaternion.LookRotation(enemyPos);
         Quaternion rot = Quaternion.LookRotation(playerDir);
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfacespeed);
-        
-        
     }
 
     IEnumerator Shoot()
@@ -95,8 +94,9 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
        enemyPos.Equals(angle);
         Quaternion ang = Quaternion.LookRotation(playerDir, enemyPos);
+        
         isShooting = true;
-        Instantiate(bullet, shootpos.position, ang);
+        Instantiate(bullet, shootpos.position, transform.rotation);
 
         yield return new WaitForSeconds(shootrate);
         isShooting = false;
