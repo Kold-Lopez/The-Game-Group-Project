@@ -48,6 +48,14 @@ public class waveSpawner : MonoBehaviour
             {
                 objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
             }
+            else if (objectSpawn.GetComponent<juggEnemy>())
+            {
+                objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
+            }
+            else if (objectSpawn.GetComponent<enemyAIbase>())
+            {
+                objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
+            }
 
 
             numberSpawned++;

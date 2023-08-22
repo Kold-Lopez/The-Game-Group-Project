@@ -68,6 +68,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
         {
             gameManager.instance.UpdateGameGoal(-1);
             //isspawner.HeyIdied();
+            GetComponent<CapsuleCollider>().enabled = false;
             whereISpawnedWave.updateEnemyNumber();
             Destroy(gameObject);
         }
