@@ -32,6 +32,8 @@ public class meleeEnemy : MonoBehaviour, IDamage
         //colliderSph = GetComponent<SphereCollider>();
         animator.SetBool("IsDead", false);
         gameManager.instance.UpdateGameGoal(1);
+        //collider.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -92,7 +94,6 @@ public class meleeEnemy : MonoBehaviour, IDamage
     {
         animator.SetBool("IsDead", true);
         agent.enabled = false;
-        //collider.enabled = false;
         StopAllCoroutines();
         //colliderSph.enabled = false;
         //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
