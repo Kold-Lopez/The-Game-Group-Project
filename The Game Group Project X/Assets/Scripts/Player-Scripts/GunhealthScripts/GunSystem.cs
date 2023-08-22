@@ -12,9 +12,11 @@ public class GunSystem : MonoBehaviour
     [SerializeField] GUNtemp Pistol;
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject gunModel2;
+    [SerializeField] GameObject gunModel3;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform pistolShootPos;
     [SerializeField] Transform thompsonShootPos;
+    [SerializeField] Transform shotgunShootPos;
 
     [Header("----- Current Gun Stats -----")]
     [SerializeField] float shootRate;
@@ -85,13 +87,21 @@ public class GunSystem : MonoBehaviour
 
         if (gunList[selectedGun].weaponDifferentiator == "Pistol")
         {
-            gunModel2.SetActive(false);
             gunModel.SetActive(true);
+            gunModel2.SetActive(false);
+            gunModel3.SetActive(false);
         }
         else if (gunList[selectedGun].weaponDifferentiator == "Thompson")
         {
             gunModel.SetActive(false);
             gunModel2.SetActive(true);
+            gunModel3.SetActive(false);
+        }
+        else if (gunList[selectedGun].weaponDifferentiator == "Shotgun")
+        {
+            gunModel2.SetActive(false);
+            gunModel.SetActive(false);
+            gunModel3.SetActive(true);
         }
 
     }
@@ -145,6 +155,10 @@ public class GunSystem : MonoBehaviour
                 {
                     Instantiate(bullet, thompsonShootPos.position, transform.rotation);
                 }
+                else if (gunList[selectedGun].weaponDifferentiator == "Shotgun")
+                {
+                    Instantiate(bullet, shotgunShootPos.position, transform.rotation);
+                }
                 IDamage damageable = hit.collider.GetComponent<IDamage>();
                 gunList[selectedGun].currentAmmo--;
                 if (damageable != null)
@@ -174,6 +188,11 @@ public class GunSystem : MonoBehaviour
                 gunModel2.SetActive(false);
                 //replace setactive with animation here
             }
+            else if (gunList[selectedGun].weaponDifferentiator == "Shotgun")
+            {
+                gunModel3.SetActive(false);
+                //replace setactive with animation here
+            }
 
             ammoToTake = gunList[selectedGun].weaponClipSize - gunList[selectedGun].currentAmmo;
             gunList[selectedGun].currentAmmo = 0;
@@ -189,6 +208,11 @@ public class GunSystem : MonoBehaviour
             else if (gunList[selectedGun].weaponDifferentiator == "Thompson")
             {
                 gunModel2.SetActive(true);
+                //replace setactive with animation here
+            }
+            else if (gunList[selectedGun].weaponDifferentiator == "Shotgun")
+            {
+                gunModel3.SetActive(true);
                 //replace setactive with animation here
             }
 
@@ -211,8 +235,18 @@ public class GunSystem : MonoBehaviour
         ReloadTime = gun.ReloadTime;
         isShooting = false;
 
-        gunModel.SetActive(false);
-        gunModel2.SetActive(true);
+        if (gun.weaponDifferentiator == "Thompson")
+        {
+            gunModel.SetActive(false);
+            gunModel2.SetActive(true);
+            gunModel3.SetActive(false);
+        }
+        else if(gun.weaponDifferentiator == "Shotgun")
+        {
+            gunModel.SetActive(false);
+            gunModel2.SetActive(false);
+            gunModel3.SetActive(true);
+        }
 
         selectedGun = gunList.Count - 1;
 
