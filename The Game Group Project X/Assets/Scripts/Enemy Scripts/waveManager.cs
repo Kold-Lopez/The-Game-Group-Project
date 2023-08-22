@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class waveManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class waveManager : MonoBehaviour
     public static waveManager instance;
 
     [SerializeField] waveSpawner[] spawners;
+
     [SerializeField] int timeBetweenWaves;
 
 
@@ -14,22 +16,27 @@ public class waveManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        instance = this;
-        StartCoroutine(startWave());
+        if (instance == null)
+        {
+
+            instance = this;
+            StartCoroutine(startWave());
+        }
     }
 
-
+  
     public IEnumerator startWave()
     {
         waveCurrent++;
-        if (waveCurrent <= spawners.Length)
+        if (waveCurrent <= instance.spawners.Length)
         {
+            // spawners[waveCurrent -1].enabled = true;
             yield return new WaitForSeconds(timeBetweenWaves);
             spawners[waveCurrent - 1].startWave();
 
         }
-        
+
     }
 }

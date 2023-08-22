@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public TextMeshProUGUI enemiesRemainingTxt;
+    public TextMeshProUGUI waveTxt;
     public TextMeshProUGUI ammoCur;
     public TextMeshProUGUI ammoMax;
     public TextMeshProUGUI coinCount;
@@ -40,8 +41,8 @@ public class gameManager : MonoBehaviour
         gunSystem = player.GetComponent<GunSystem>();
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
-// Updated upstream
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+
+
 
     }
 
@@ -78,6 +79,7 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         enemiesRemainingTxt.text = enemiesRemaining.ToString("F0");
+        waveTxt.text = waveManager.instance.waveCurrent.ToString("F0");
 
         if (enemiesRemaining <= 0 && waveManager.instance.waveCurrent == totalWaves)
         {

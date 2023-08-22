@@ -29,7 +29,10 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
     void Start()
     {
         runAnimation = GetComponent<Animator>();
-        gameManager.instance.UpdateGameGoal(3);
+
+
+       // gameManager.instance.UpdateGameGoal(1);
+
     }
 
     // Update is called once per frame
