@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 2826785257729150594}
   - component: {fileID: 1034732107466360699}
   m_Layer: 3
-  m_Name: testJugg
+  m_Name: Juggernaught
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1050,11 +1050,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 982365716250294914}
   agent: {fileID: 2826785257729150594}
+  animator: {fileID: 0}
   playerFaceSpeed: 3
   Hp: 20
   hitRate: 4
   speed: 1
   knockbackDist: 0
+  whereISpawnedWave: {fileID: 0}
 --- !u!195 &2826785257729150594
 NavMeshAgent:
   m_ObjectHideFlags: 0
