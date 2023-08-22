@@ -18,7 +18,9 @@ MonoBehaviour:
   currentAmmo: 18
   weaponClipSize: 18
   maxAmmo: 999999999
-  ReloadTime: 1
+  ReloadTime: 5
   weaponDifferentiator: Pistol
+  shootPos: {fileID: 0}
   theGUN: {fileID: 4043241439066821443, guid: 726cd21416e138640a4f2575ffe04009, type: 3}
+  theBullet: {fileID: 0}
   hitEffect: {fileID: 0}

@@ -12,7 +12,7 @@ public class GUNtemp : ScriptableObject
     public int currentAmmo;
     public int weaponClipSize;
     public int maxAmmo;
-    [Range(1, 10)] public float ReloadTime;
+    public int ReloadTime;
 
     public string weaponDifferentiator;
 
