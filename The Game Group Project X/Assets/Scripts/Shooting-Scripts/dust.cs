@@ -5,6 +5,7 @@ using UnityEngine;
 public class dust : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
     [SerializeField] int dustTime;
@@ -22,7 +23,8 @@ public class dust : MonoBehaviour
         IDamage damagable = other.GetComponent<IDamage>();
         if (damagable != null)
         {
-            dustInEyes();
+            damagable.takeDamage(damage);
+            StartCoroutine(dustInEyes());
         }
         Destroy(gameObject);
     }

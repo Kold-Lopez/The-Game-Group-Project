@@ -40,7 +40,7 @@ public class gameManager : MonoBehaviour
         gunSystem = player.GetComponent<GunSystem>();
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
+// Updated upstream
         //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
 
     }
