@@ -42,7 +42,7 @@ public class gameManager : MonoBehaviour
         coins = GameObject.FindGameObjectWithTag("Coins");
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
-        //StartCoroutine(load());
+
     }
 
 
