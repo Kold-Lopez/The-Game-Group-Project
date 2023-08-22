@@ -45,7 +45,7 @@ public class GunSystem : MonoBehaviour
             shootRange = Pistol.shootDist;
             shootRate = Pistol.shootRate;
             currentReserveAmmo = Pistol.maxAmmo; //ammo tracking convience
-            ReloadTime = Pistol.ReloadTime;
+            ReloadTime = (int)Pistol.ReloadTime;
             weaponName = Pistol.weaponDifferentiator;
 
             Pistol.currentAmmo = Pistol.weaponClipSize;
@@ -82,7 +82,7 @@ public class GunSystem : MonoBehaviour
         shootDmg = gunList[selectedGun].shootDamage;
         shootRange = gunList[selectedGun].shootDist;
         shootRate = gunList[selectedGun].shootRate;
-        ReloadTime = gunList[selectedGun].ReloadTime;
+        ReloadTime = (int)gunList[selectedGun].ReloadTime;
         //pulling out weapon animation
 
         if (gunList[selectedGun].weaponDifferentiator == "Pistol")
@@ -232,7 +232,7 @@ public class GunSystem : MonoBehaviour
 
         gun.currentAmmo = gun.weaponClipSize;
 
-        ReloadTime = gun.ReloadTime;
+        ReloadTime = (int)gun.ReloadTime;
         isShooting = false;
 
         if (gun.weaponDifferentiator == "Thompson")
