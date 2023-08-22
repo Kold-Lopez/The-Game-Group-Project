@@ -30,6 +30,7 @@ public class GunSystem : MonoBehaviour
 
     [SerializeField] bool StartActive;
     private bool isReloading;
+    private bool gunAmmoAdded = false;
     private int ammoToTake;
     private bool noAmmo;
     private bool isShooting;
@@ -223,32 +224,53 @@ public class GunSystem : MonoBehaviour
     }
     public void gunPickUP(GUNtemp gun)
     {
-        gunList.Add(gun);
-
-        shootDmg = gun.shootDamage;
-        shootRange = gun.shootDist;
-        shootRate = gun.shootRate;
-        weaponName = gun.weaponDifferentiator;
-
-        gun.currentAmmo = gun.weaponClipSize;
-
-        ReloadTime = (int)gun.ReloadTime;
-        isShooting = false;
-
-        if (gun.weaponDifferentiator == "Thompson")
+        for(int i = 0; i < gunList.Count; i++)
         {
-            gunModel.SetActive(false);
-            gunModel2.SetActive(true);
-            gunModel3.SetActive(false);
+            if(gun.weaponDifferentiator == gunList[i].weaponDifferentiator)
+            {
+                if(gun.weaponDifferentiator == "Thompson")
+                {
+                    gunList[i].maxAmmo += 100;
+                    gunAmmoAdded = true;
+                }
+                else if(gun.weaponDifferentiator == "Shotgun")
+                {
+                    gunList[i].maxAmmo += 24;
+                    gunAmmoAdded = true;
+                }
+            }
+           
         }
-        else if(gun.weaponDifferentiator == "Shotgun")
+        if(gunAmmoAdded == false)
         {
-            gunModel.SetActive(false);
-            gunModel2.SetActive(false);
-            gunModel3.SetActive(true);
-        }
+            gunList.Add(gun);
 
-        selectedGun = gunList.Count - 1;
+            shootDmg = gun.shootDamage;
+            shootRange = gun.shootDist;
+            shootRate = gun.shootRate;
+            weaponName = gun.weaponDifferentiator;
+
+            gun.currentAmmo = gun.weaponClipSize;
+
+            ReloadTime = (int)gun.ReloadTime;
+            isShooting = false;
+
+            if (gun.weaponDifferentiator == "Thompson")
+            {
+                gunModel.SetActive(false);
+                gunModel2.SetActive(true);
+                gunModel3.SetActive(false);
+            }
+            else if(gun.weaponDifferentiator == "Shotgun")
+            {
+                gunModel.SetActive(false);
+                gunModel2.SetActive(false);
+                gunModel3.SetActive(true);
+            }
+
+            selectedGun = gunList.Count - 1;
+        }
+        
 
     }
 
