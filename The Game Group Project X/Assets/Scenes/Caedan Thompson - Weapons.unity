@@ -1774,10 +1774,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4613550006291862040, guid: bc442847cfd0e3d44aaf2e2d2bd59c2f, type: 3}
-      propertyPath: theGun
-      value: 
-      objectReference: {fileID: 11400000, guid: e48274b01c0853e46914e30864dad5db, type: 2}
     - target: {fileID: 5594291606503452712, guid: bc442847cfd0e3d44aaf2e2d2bd59c2f, type: 3}
       propertyPath: m_Name
       value: PickupableThompsonOnGround
