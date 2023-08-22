@@ -5,13 +5,14 @@ using UnityEngine;
 public class WeaponDropPickup : MonoBehaviour
 {
     [SerializeField] GameObject WeaponPickup;
-    [SerializeField] GUNtemp theThompson;
+    [SerializeField] GUNtemp theGun;
+    
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.gunSystem.gunPickUP(theThompson);
+            gameManager.instance.gunSystem.gunPickUP(theGun);
             WeaponPickup.SetActive(false);
         }
     }
