@@ -71,8 +71,8 @@ public class meleeEnemy : MonoBehaviour, IDamage
         
         if (Hp <= 0)
         {
-
-            StartCoroutine(takeDamagAnim());
+            animator.SetBool("IsDead", true);
+            //StartCoroutine(takeDamagAnim());
             gameManager.instance.UpdateGameGoal(-1);
             Instantiate(coin, transform.position, transform.rotation);
 
@@ -90,14 +90,13 @@ public class meleeEnemy : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
     }
-    IEnumerator takeDamagAnim()
+    public void takeDamagAnim()
     {
-        animator.SetBool("IsDead", true);
+        
         agent.enabled = false;
         StopAllCoroutines();
         //colliderSph.enabled = false;
         //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
-        yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
 }

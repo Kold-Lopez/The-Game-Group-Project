@@ -418,6 +418,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8632053298659004803, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -484,6 +488,42 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf77ecbe333bca245bf816c8571f29d2, type: 3}
+--- !u!1 &860603345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8653778213840805079, guid: eee421c180689ee44968112718d79fea, type: 3}
+  m_PrefabInstance: {fileID: 7603838791719401856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &860603352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860603345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3771c04f38618444a8fd118a87c4f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+--- !u!1 &866481264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4484022017127617478, guid: eee421c180689ee44968112718d79fea, type: 3}
+  m_PrefabInstance: {fileID: 7603838791719401856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &866481271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866481264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3771c04f38618444a8fd118a87c4f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1001 &1048107857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3450,7 +3490,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4484022017127617478, guid: eee421c180689ee44968112718d79fea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 866481271}
+    - targetCorrespondingSourceObject: {fileID: 8653778213840805079, guid: eee421c180689ee44968112718d79fea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 860603352}
   m_SourcePrefab: {fileID: 100100000, guid: eee421c180689ee44968112718d79fea, type: 3}
 --- !u!23 &7683002246295243789
 MeshRenderer:

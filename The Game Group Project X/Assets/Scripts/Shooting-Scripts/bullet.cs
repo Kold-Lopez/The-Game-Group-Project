@@ -14,6 +14,7 @@ public class bullet : MonoBehaviour
     {
         Destroy(gameObject, destroyTime);
         rb.velocity = transform.forward * speed;
+        
     }
 
     public void OnTriggerEnter(Collider other)

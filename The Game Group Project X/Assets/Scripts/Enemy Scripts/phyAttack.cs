@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class phyAttack : MonoBehaviour
 {
 
     //[SerializeField] Rigidbody rb;
     [SerializeField] int damage;
+    //private SphereCollider ShpCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,13 @@ public class phyAttack : MonoBehaviour
         {
             damagable.takeDamage(damage);
         }
+        
 
     }
+    public void TriggerOFF(Collider other)
+    {
+        other.enabled = false;
+    }
+    
+
 }

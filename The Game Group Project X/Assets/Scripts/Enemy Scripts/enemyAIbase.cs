@@ -29,7 +29,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     public Spawner isspawner;
     Vector3 angleNew;
     float angle;
-
+    float sub = 30;
 
     void Start()
     {
@@ -38,13 +38,12 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        playerDir = gameManager.instance.player.transform.position - model.transform.position;
+        playerDir = gameManager.instance.player.transform.position - shootpos.position;
 
-        //angleNew = gameManager.instance.player.transform.position.y - shootpos.transform.position.y;
 
-        //angle = Mathf.Lerp(playerDir.x, playerDir.y, speed);
 
-        //playerDir.Equals(angle);
+        angle = gameManager.instance.player.transform.position.y - shootpos.position.y;
+
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -56,6 +55,8 @@ public class enemyAIbase : MonoBehaviour, IDamage
         }
 
         agent.SetDestination(gameManager.instance.player.transform.position);
+
+        
 
     }
     public void takeDamage(int amount)
@@ -92,11 +93,11 @@ public class enemyAIbase : MonoBehaviour, IDamage
     IEnumerator Shoot()
     {
 
-       enemyPos.Equals(angle);
-        Quaternion ang = Quaternion.LookRotation(playerDir, enemyPos);
+        enemyPos.Equals(angle);
+        Quaternion ang = Quaternion.LookRotation(playerDir,enemyPos);
         
         isShooting = true;
-        Instantiate(bullet, shootpos.position, transform.rotation);
+        Instantiate(bullet, shootpos.position, ang);
 
         yield return new WaitForSeconds(shootrate);
         isShooting = false;
