@@ -48,7 +48,6 @@ public class playerController : MonoBehaviour, IDamage
         movement();
         Sprint();
         StartCoroutine(updateStam());
-        coinPickUp();
     }
 
     void movement()
@@ -165,9 +164,9 @@ public class playerController : MonoBehaviour, IDamage
         }
         gameManager.instance.coinCount.text = coinAmount.ToString("F0");
     }
-    public void coinPickUp()
+    public void coinPickUp(int amount)
     {
-        
+        coinAmount += amount;
     }
     public void makeManSpeedy(float speedIncrease, float sprintIncrease, int jumpIncrease)
     {
