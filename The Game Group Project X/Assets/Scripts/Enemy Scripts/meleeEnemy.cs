@@ -23,11 +23,13 @@ public class meleeEnemy : MonoBehaviour, IDamage
     bool playerInRange;
     private float agentVel;
     Collider collider;
+    //SphereCollider colliderSph;
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<Collider>();
+        //colliderSph = GetComponent<SphereCollider>();
         animator.SetBool("IsDead", false);
         gameManager.instance.UpdateGameGoal(1);
     }
@@ -65,6 +67,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
         StartCoroutine(flashDamage());
         if (Hp <= 0)
         {
+
             StartCoroutine(takeDamagAnim());
             gameManager.instance.UpdateGameGoal(-1);
             Instantiate(coin, transform.position, transform.rotation);
@@ -83,6 +86,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
     {
         animator.SetBool("IsDead", true);
         collider.enabled = false;
+        //colliderSph.enabled = false;
         //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
         yield return new WaitForSeconds(5);
         Destroy(gameObject);

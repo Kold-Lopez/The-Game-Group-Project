@@ -18,7 +18,6 @@ public class enemyAIbase : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootpos;
 
-    public waveSpawner whereISpawnedWave;
     Vector3 playerDir;
     Vector3 playerPos;
     Vector3 enemyPos;

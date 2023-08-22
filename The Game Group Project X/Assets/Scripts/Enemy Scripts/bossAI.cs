@@ -50,8 +50,9 @@ public class bossAI : MonoBehaviour, IDamage
     // Update is called once per frame
     void Update()
     {
-        //agentVel = 1;
+        agentVel = 0;
         playerDir = gameManager.instance.player.transform.position - transform.position;
+        animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
         
         
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -61,13 +62,18 @@ public class bossAI : MonoBehaviour, IDamage
             {
                 StartCoroutine(phase1());
             }
-            if(HP <= 500)
+            if(HP <= 500 && HP > 251)
             {
                 if (!isShooting)
                 {
                     StartCoroutine(phase2());
                 }
             }
+            else if(HP <= 250)
+            {
+                phase3();
+            }
+
         }
         
         
@@ -119,5 +125,17 @@ public class bossAI : MonoBehaviour, IDamage
         Instantiate(bullet, shootPosGut.position, transform.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+    private void phase3()
+    {
+        animator.SetBool("Phase3", true);
+        if(animator.GetFloat("Speed")  <= 0.02f)
+        {
+            agentVel++;
+        }
+        else if(animator.GetFloat("Speed") >= 0.98) 
+        {
+            agentVel--;
+        }
     }
 }
