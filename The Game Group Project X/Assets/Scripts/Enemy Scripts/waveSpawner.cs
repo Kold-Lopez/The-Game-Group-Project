@@ -7,11 +7,14 @@ public class waveSpawner : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] GameObject objectToSpawn;
+    //[SerializeField] GameObject objectToSpawn2;
+    //[SerializeField] GameObject objectToSpawn3;
     [SerializeField] Transform[] spawnPos;
     [SerializeField] int numberToSpawn;
     [SerializeField] float timeBetweenSpawns;
-    [SerializeField] List<GameObject> objectList = new List<GameObject>();
+    [SerializeField]  List<GameObject> objectList = new List<GameObject>();
 
+    
 
     int numberSpawned;
     int numberKilled;

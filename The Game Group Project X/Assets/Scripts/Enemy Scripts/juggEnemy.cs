@@ -69,6 +69,7 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
         if (Hp <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
+            whereISpawnedWave.updateEnemyNumber();
             Destroy(gameObject);
         }
     }

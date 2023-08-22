@@ -11,6 +11,7 @@ public class waveManager : MonoBehaviour
 
     [SerializeField] int timeBetweenWaves;
 
+    
 
     public int waveCurrent;
 
@@ -18,15 +19,18 @@ public class waveManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+
         if (instance == null)
         {
 
             instance = this;
             StartCoroutine(startWave());
         }
+
+       
     }
 
-  
+
     public IEnumerator startWave()
     {
         waveCurrent++;
@@ -34,8 +38,13 @@ public class waveManager : MonoBehaviour
         {
             // spawners[waveCurrent -1].enabled = true;
             yield return new WaitForSeconds(timeBetweenWaves);
+
+            gameManager.instance.UpdateGameGoal(0);
             spawners[waveCurrent - 1].startWave();
 
+           
+
+           
         }
 
     }
