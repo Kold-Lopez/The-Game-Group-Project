@@ -33,7 +33,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Start()
     {
-        gameManager.instance.UpdateGameGoal(1);
+        //gameManager.instance.UpdateGameGoal(1);
     }
 
     void Update()

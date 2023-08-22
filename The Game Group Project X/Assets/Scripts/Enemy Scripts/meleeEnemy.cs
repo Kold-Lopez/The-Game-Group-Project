@@ -31,9 +31,10 @@ public class meleeEnemy : MonoBehaviour, IDamage
         //collider = GetComponent<SphereCollider>();
         //colliderSph = GetComponent<SphereCollider>();
         animator.SetBool("IsDead", false);
-        gameManager.instance.UpdateGameGoal(1);
-        //collider.enabled = false;
-        
+
+
+        //gameManager.instance.UpdateGameGoal(1);
+
     }
 
     // Update is called once per frame
@@ -74,6 +75,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
 
             StartCoroutine(takeDamagAnim());
             gameManager.instance.UpdateGameGoal(-1);
+            whereISpawnedWave.updateEnemyNumber();
             Instantiate(coin, transform.position, transform.rotation);
 
         }

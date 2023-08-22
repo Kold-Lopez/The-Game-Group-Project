@@ -12,7 +12,7 @@ public class waveSpawner : MonoBehaviour
     [SerializeField] float timeBetweenSpawns;
     [SerializeField] List<GameObject> objectList = new List<GameObject>();
 
-   
+
     int numberSpawned;
     int numberKilled;
     bool isSpawning;
@@ -43,9 +43,9 @@ public class waveSpawner : MonoBehaviour
             GameObject objectSpawn = Instantiate(objectToSpawn, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
             if (objectSpawn.GetComponent<meleeEnemy>())
             {
-                objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;  
+                objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
             }
-            
+
 
             numberSpawned++;
 
