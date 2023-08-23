@@ -29,7 +29,7 @@ public class gameManager : MonoBehaviour
 
 
     bool isPaused;
-    int totalWaves = 2;
+    int totalWaves = 6;
     int enemiesRemaining;
 
 
@@ -77,9 +77,9 @@ public class gameManager : MonoBehaviour
 
     public void UpdateGameGoal(int amount)
     {
+        waveTxt.text = waveManager.instance.waveCurrent.ToString("F0");
         enemiesRemaining += amount;
         enemiesRemainingTxt.text = enemiesRemaining.ToString("F0");
-        waveTxt.text = waveManager.instance.waveCurrent.ToString("F0");
 
         if (enemiesRemaining <= 0 && waveManager.instance.waveCurrent == totalWaves)
         {

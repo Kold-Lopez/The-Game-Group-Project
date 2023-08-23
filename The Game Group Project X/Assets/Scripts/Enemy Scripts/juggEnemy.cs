@@ -65,11 +65,17 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
     public void takeDamage(int amount)
     {
         Hp -= amount;
-        StartCoroutine(flashDamage());
+       
         if (Hp <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
+            GetComponent<CapsuleCollider>().enabled = false;
+            whereISpawnedWave.updateEnemyNumber();
             Destroy(gameObject);
+        }
+        else
+        {
+            StartCoroutine(flashDamage());
         }
     }
 

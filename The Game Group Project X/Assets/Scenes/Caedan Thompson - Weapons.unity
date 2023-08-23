@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: ab4c4f01dca50734f934f88fb5688294, type: 2}
---- !u!4 &301800359 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8022128816460855046, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
-  m_PrefabInstance: {fileID: 1407408547}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &366578244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -781,37 +776,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deaf4154b5b08764d8ae395c09381dad, type: 3}
---- !u!1 &1281471898
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1281471899}
-  m_Layer: 0
-  m_Name: ShotgunPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1281471899
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281471898}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.88, y: 0.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4760918583785991545}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1400011632
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,28 +933,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6148840410082719209, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623848714192395598, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
-      propertyPath: gunModel3
-      value: 
-      objectReference: {fileID: 4763009850378582359}
-    - target: {fileID: 6623848714192395598, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
-      propertyPath: shotgunShootPos
-      value: 
-      objectReference: {fileID: 1281471899}
     - target: {fileID: 7707214279334573435, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8022128816460855046, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4760918583785991545}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
 --- !u!1 &1577759432
@@ -1383,84 +1332,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
---- !u!1001 &1712546569557768510
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 301800359}
-    m_Modifications:
-    - target: {fileID: 395430781249513790, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_Name
-      value: Shotgun
-      objectReference: {fileID: 0}
-    - target: {fileID: 395430781249513790, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.1300001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1281471899}
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
---- !u!4 &4760918583785991545 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1640397976287796254, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-  m_PrefabInstance: {fileID: 1712546569557768510}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4763009850378582359 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 395430781249513790, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
-  m_PrefabInstance: {fileID: 1712546569557768510}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4920287583640824090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1774,10 +1645,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4613550006291862040, guid: bc442847cfd0e3d44aaf2e2d2bd59c2f, type: 3}
-      propertyPath: theGun
-      value: 
-      objectReference: {fileID: 11400000, guid: e48274b01c0853e46914e30864dad5db, type: 2}
     - target: {fileID: 5594291606503452712, guid: bc442847cfd0e3d44aaf2e2d2bd59c2f, type: 3}
       propertyPath: m_Name
       value: PickupableThompsonOnGround

@@ -148,18 +148,6 @@ public class GunSystem : MonoBehaviour
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, gunList[selectedGun].shootDist))
             {
                 //add muzzleflash and gun kick animations here
-                if(gunList[selectedGun].weaponDifferentiator == "Pistol")
-                {
-                    Instantiate(bullet, pistolShootPos.position, transform.rotation);
-                }
-                else if(gunList[selectedGun].weaponDifferentiator == "Thompson")
-                {
-                    Instantiate(bullet, thompsonShootPos.position, transform.rotation);
-                }
-                else if (gunList[selectedGun].weaponDifferentiator == "Shotgun")
-                {
-                    Instantiate(bullet, shotgunShootPos.position, transform.rotation);
-                }
                 IDamage damageable = hit.collider.GetComponent<IDamage>();
                 gunList[selectedGun].currentAmmo--;
                 if (damageable != null)

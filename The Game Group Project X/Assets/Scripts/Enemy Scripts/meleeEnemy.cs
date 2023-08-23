@@ -75,6 +75,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
             animator.SetBool("IsDead", true);
             //StartCoroutine(takeDamagAnim());
             gameManager.instance.UpdateGameGoal(-1);
+            GetComponent<CapsuleCollider>().enabled = false;
             whereISpawnedWave.updateEnemyNumber();
             Instantiate(coin, transform.position, transform.rotation);
 
