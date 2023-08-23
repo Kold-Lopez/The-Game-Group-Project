@@ -21,6 +21,7 @@ public class waveSpawner : MonoBehaviour
     bool isSpawning;
     bool startSpawning = false;
     bool deSpawn;
+    int increment = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -66,8 +67,9 @@ public class waveSpawner : MonoBehaviour
 
             if (objectToSpawn2 != null)
             {
-                objectSpawn = Instantiate(objectToSpawn2, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+                GameObject objectSpawn2 = Instantiate(objectToSpawn2, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
                 numberSpawned++;
+                numberToSpawn++;
                 if (objectSpawn.GetComponent<meleeEnemy>())
                 {
                     objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
@@ -84,8 +86,9 @@ public class waveSpawner : MonoBehaviour
 
             else if (objectToSpawn3 != null)
             {
-                objectSpawn = Instantiate(objectToSpawn3, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+                GameObject objectSpawn3 = Instantiate(objectToSpawn3, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
                 numberSpawned++;
+                numberToSpawn++;
                 if (objectSpawn.GetComponent<meleeEnemy>())
                 {
                     objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
