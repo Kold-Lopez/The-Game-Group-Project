@@ -1287,6 +1287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoostyBars
       objectReference: {fileID: 0}
+    - target: {fileID: 3666630683492920936, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
+      propertyPath: effectDuration
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 4078115047797305225, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
       propertyPath: m_RootOrder
       value: 16

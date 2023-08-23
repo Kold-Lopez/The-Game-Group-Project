@@ -9,7 +9,7 @@ public class BoostBars : MonoBehaviour
     [Header("----- StatChangeMultiplier -----")]
     [Range(1, 10)][SerializeField] float SpeedIncrease;
     [Range(1, 10)][SerializeField] float SprintSpeedIncrease;
-    [Range(10, 60)][SerializeField] int effectDuration;
+    [Range(30, 120)][SerializeField] int effectDuration;
 
     // Start is called before the first frame update
 

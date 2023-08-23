@@ -280,7 +280,7 @@ MonoBehaviour:
   BoostyBars: {fileID: 3276901700346266218}
   SpeedIncrease: 10
   SprintSpeedIncrease: 10
-  effectDuration: 10
+  effectDuration: 120
 --- !u!135 &6759423931658989770
 SphereCollider:
   m_ObjectHideFlags: 0
