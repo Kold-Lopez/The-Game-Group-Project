@@ -60,18 +60,19 @@ public class bossAI : MonoBehaviour, IDamage
             facePlayer();
             if (HP <= 999 && HP > 501)
             {
-                StartCoroutine(phase1());
+                phase3();
             }
             if(HP <= 500 && HP > 251)
             {
                 if (!isShooting)
                 {
+                    StartCoroutine(phase1());
                     StartCoroutine(phase2());
                 }
             }
             else if(HP <= 250)
             {
-                phase3();
+                //phase3();
             }
 
         }
@@ -92,7 +93,7 @@ public class bossAI : MonoBehaviour, IDamage
         StartCoroutine(flashDamage());
         if (HP <= 0)
         {
-            gameManager.instance.UpdateGameGoal(-1);
+            //gameManager.instance.UpdateGameGoal(-1);
         }
     }
     IEnumerator flashDamage()
@@ -128,6 +129,7 @@ public class bossAI : MonoBehaviour, IDamage
     }
     private void phase3()
     {
+        animator.SetBool("Punch", false);
         animator.SetBool("Phase3", true);
         if(animator.GetFloat("Speed")  <= 0.02f)
         {

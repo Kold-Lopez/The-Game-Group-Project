@@ -26,7 +26,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     bool playerinRange;
     private Animator animator;
 
-    public waveSpawner whereISpawnedWave;
+    public Spawner isspawner;
     Vector3 angleNew;
     float angle;
     float sub = 30;
@@ -66,10 +66,12 @@ public class enemyAIbase : MonoBehaviour, IDamage
         StartCoroutine(flashdmg());
         if (HP <= 0)
         {
-            gameManager.instance.UpdateGameGoal(-1);
+            //gameManager.instance.UpdateGameGoal(-1);
             //isspawner.HeyIdied();
+
             GetComponent<CapsuleCollider>().enabled = false;
             whereISpawnedWave.updateEnemyNumber();
+
             Destroy(gameObject);
         }
     }
