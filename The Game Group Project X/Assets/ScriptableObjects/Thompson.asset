@@ -15,10 +15,10 @@ MonoBehaviour:
   shootRate: 0.1
   shootDamage: 5
   shootDist: 200
-  currentAmmo: 20
-  weaponClipSize: 20
-  maxAmmo: 250
-  gameStartAmmo: 250
+  currentAmmo: 24
+  weaponClipSize: 30
+  maxAmmo: 8
+  gameStartAmmo: 60
   ReloadTime: 2
   weaponDifferentiator: Thompson
   theGUN: {fileID: 1063816135455577480, guid: 6423a9106e633b449a5ed0688557f3a4, type: 3}
