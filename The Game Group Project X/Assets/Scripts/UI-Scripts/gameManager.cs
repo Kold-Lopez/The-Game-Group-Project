@@ -31,7 +31,7 @@ public class gameManager : MonoBehaviour
 
     public bool level2;
     bool isPaused;
-    int totalWaves = 6;
+    int totalWaves = 10;
     int enemiesRemaining;
 
 

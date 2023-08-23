@@ -7,14 +7,14 @@ public class waveSpawner : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] GameObject objectToSpawn;
-    //[SerializeField] GameObject objectToSpawn2;
-    //[SerializeField] GameObject objectToSpawn3;
+    [SerializeField] GameObject objectToSpawn2;
+    [SerializeField] GameObject objectToSpawn3;
     [SerializeField] Transform[] spawnPos;
-    [SerializeField] public  int numberToSpawn;
+    [SerializeField] public int numberToSpawn;
     [SerializeField] float timeBetweenSpawns;
-    [SerializeField]  List<GameObject> objectList = new List<GameObject>();
+    [SerializeField] List<GameObject> objectList = new List<GameObject>();
 
-    
+
 
     int numberSpawned;
     int numberKilled;
@@ -44,6 +44,11 @@ public class waveSpawner : MonoBehaviour
 
 
             GameObject objectSpawn = Instantiate(objectToSpawn, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+
+
+
+
+
             if (objectSpawn.GetComponent<meleeEnemy>())
             {
                 objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
@@ -56,9 +61,45 @@ public class waveSpawner : MonoBehaviour
             {
                 objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
             }
-
-
             numberSpawned++;
+
+
+            if (objectToSpawn2 != null)
+            {
+                objectSpawn = Instantiate(objectToSpawn2, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+                numberSpawned++;
+                if (objectSpawn.GetComponent<meleeEnemy>())
+                {
+                    objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
+                }
+                else if (objectSpawn.GetComponent<juggEnemy>())
+                {
+                    objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
+                }
+                else if (objectSpawn.GetComponent<enemyAIbase>())
+                {
+                    objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
+                }
+            }
+
+            else if (objectToSpawn3 != null)
+            {
+                objectSpawn = Instantiate(objectToSpawn3, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+                numberSpawned++;
+                if (objectSpawn.GetComponent<meleeEnemy>())
+                {
+                    objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
+                }
+                else if (objectSpawn.GetComponent<juggEnemy>())
+                {
+                    objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
+                }
+                else if (objectSpawn.GetComponent<enemyAIbase>())
+                {
+                    objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
+                }
+            }
+
 
             yield return new WaitForSeconds(timeBetweenSpawns);
             isSpawning = false;
@@ -81,8 +122,8 @@ public class waveSpawner : MonoBehaviour
         }
     }
 
-   
-      
-    
+
+
+
 
 }
