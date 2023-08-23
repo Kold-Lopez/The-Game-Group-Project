@@ -104,13 +104,15 @@ public class enemyAIbase : MonoBehaviour, IDamage
             //Instantiate(coin, angleNew, Quaternion.identity);
             
             GetComponent<CapsuleCollider>().enabled = false;
+
+            gameManager.instance.UpdateGameGoal(-1);
             
-            
+
             //agent.enabled = false;
 
-            //whereISpawnedWave.updateEnemyNumber();
+            whereISpawnedWave.updateEnemyNumber();
 
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
         
     }

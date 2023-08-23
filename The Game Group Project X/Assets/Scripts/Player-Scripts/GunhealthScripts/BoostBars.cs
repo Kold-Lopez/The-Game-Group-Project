@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoostBars : MonoBehaviour, IInteractable
+public class BoostBars : MonoBehaviour
 {
     [Header("----- TheBoostyBarObject -----")]
     [SerializeField] GameObject BoostyBars;
     [Header("----- StatChangeMultiplier -----")]
     [Range(1, 10)][SerializeField] float SpeedIncrease;
     [Range(1, 10)][SerializeField] float SprintSpeedIncrease;
-    [Range(10, 60)][SerializeField] int effectDuration;
+    [Range(30, 120)][SerializeField] int effectDuration;
 
     // Start is called before the first frame update
 
-    public void Interact()
+    private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(chocolateyBars());
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(chocolateyBars());
+        }
     }
+    
 
     IEnumerator chocolateyBars()
     {
