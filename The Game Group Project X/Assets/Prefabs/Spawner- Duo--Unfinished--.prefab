@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 2738394654260704488}
   - component: {fileID: 1464415442739769226}
   m_Layer: 0
-  m_Name: Spawner- Duo
+  m_Name: Spawner- Duo--Unfinished--
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
