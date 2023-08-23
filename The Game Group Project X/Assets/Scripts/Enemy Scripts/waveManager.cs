@@ -54,7 +54,7 @@ public class waveManager : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenWaves);
 
-            gameManager.instance.UpdateGameGoal(0);
+            gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn);
 
             if (waveCurrent <= 10)
             {
