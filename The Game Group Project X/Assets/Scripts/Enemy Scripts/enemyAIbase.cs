@@ -8,7 +8,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
-
+    [SerializeField] Animator animator;
 
     [SerializeField] int HP;
     [SerializeField] int speed;
@@ -18,13 +18,14 @@ public class enemyAIbase : MonoBehaviour, IDamage
     [SerializeField] float shootrate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootpos;
+    
 
     Vector3 playerDir;
     Vector3 playerPos;
     Vector3 enemyPos;
     bool isShooting;
     bool playerinRange;
-    private Animator animator;
+    //private Animator animator;
     public Spawner isspawning;
     public waveSpawner whereISpawnedWave;
     Vector3 angleNew;
@@ -50,11 +51,20 @@ public class enemyAIbase : MonoBehaviour, IDamage
             facePlayer();
             if (!isShooting)
             {
-                StartCoroutine(Shoot());
+                animator.SetTrigger("InRange");
+                //StartCoroutine(Shoot());
             }
+            animator.SetBool("Moving", false);
         }
+        else
+        {
+            animator.SetBool("Moving", true);
+        }
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            
+        
 
-        agent.SetDestination(gameManager.instance.player.transform.position);
+        
 
         
 
