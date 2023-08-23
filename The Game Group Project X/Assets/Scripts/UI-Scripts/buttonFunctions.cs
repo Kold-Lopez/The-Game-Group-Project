@@ -15,6 +15,7 @@ public class buttonFunctions : MonoBehaviour
     {
         gameManager.instance.playerScript.spawnPlayer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
         gameManager.instance.stateUnpaused();
     }
     public void quit()
@@ -33,4 +34,6 @@ public class buttonFunctions : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(level);
     }
+
+    
 }

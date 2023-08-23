@@ -10,7 +10,7 @@ public class waveSpawner : MonoBehaviour
     //[SerializeField] GameObject objectToSpawn2;
     //[SerializeField] GameObject objectToSpawn3;
     [SerializeField] Transform[] spawnPos;
-    [SerializeField] int numberToSpawn;
+    [SerializeField] public  int numberToSpawn;
     [SerializeField] float timeBetweenSpawns;
     [SerializeField]  List<GameObject> objectList = new List<GameObject>();
 
@@ -25,7 +25,7 @@ public class waveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager.instance.UpdateGameGoal(numberToSpawn);
+        //gameManager.instance.UpdateGameGoal(numberToSpawn);
     }
 
     private void Update()
@@ -81,5 +81,8 @@ public class waveSpawner : MonoBehaviour
         }
     }
 
+   
+      
+    
 
 }

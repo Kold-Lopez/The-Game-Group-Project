@@ -8,6 +8,7 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
     public GameObject playerSpawnPos;
+    public GameObject level2Spawn;
     public GameObject player;
     public playerController playerScript;
     public GunSystem gunSystem;
@@ -27,7 +28,7 @@ public class gameManager : MonoBehaviour
     public Image playerStamBar;
     //public audioManager audioManager;
 
-
+    public bool level2;
     bool isPaused;
     int totalWaves = 6;
     int enemiesRemaining;
@@ -40,6 +41,7 @@ public class gameManager : MonoBehaviour
         playerScript = player.GetComponent<playerController>();
         gunSystem = player.GetComponent<GunSystem>();
         playerSpawnPos = GameObject.FindGameObjectWithTag("Player Spawn Pos");
+        level2Spawn = GameObject.FindGameObjectWithTag("Level2 Spawn Pos");
         coins = GameObject.FindGameObjectWithTag("Coins");
 
 
@@ -80,6 +82,11 @@ public class gameManager : MonoBehaviour
         waveTxt.text = waveManager.instance.waveCurrent.ToString("F0");
         enemiesRemaining += amount;
         enemiesRemainingTxt.text = enemiesRemaining.ToString("F0");
+
+        if(level2)
+        {
+           
+        }
 
         if (enemiesRemaining <= 0 && waveManager.instance.waveCurrent == totalWaves)
         {
