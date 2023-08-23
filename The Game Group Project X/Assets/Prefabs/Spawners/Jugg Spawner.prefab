@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2692279251457205809}
   - component: {fileID: 6755374687819393604}
   - component: {fileID: 7805306316974435050}
-  - component: {fileID: 7634414964545142171}
+  - component: {fileID: 1498950066775663293}
   m_Layer: 0
   m_Name: Jugg Spawner
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 1749548308021502331}
   m_Father: {fileID: 0}
-  m_RootOrder: 88
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6755374687819393604
 MeshFilter:
@@ -66,7 +66,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &7634414964545142171
+--- !u!114 &1498950066775663293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,14 +75,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2263800964500561046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195bfa099c917cf4ea4997185b5eaa9f, type: 3}
+  m_Script: {fileID: 11500000, guid: b746058a56b720043bd007f96996b3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 7418640033441885289, guid: 6c8a998fd2ca63346b60109f0134a360, type: 3}
   spawnPos:
   - {fileID: 1749548308021502331}
   numberToSpawn: 1
-  timeBetweenSpawns: 10
+  timeBetweenSpawns: 1
   objectList: []
 --- !u!1 &6641069774448648066
 GameObject:
@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6641069774448648066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 0, z: -4.1}
+  m_LocalPosition: {x: -4.14, y: 0, z: -42.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

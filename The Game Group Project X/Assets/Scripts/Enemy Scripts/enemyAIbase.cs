@@ -25,7 +25,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     bool isShooting;
     bool playerinRange;
     private Animator animator;
-
+    public Spawner isspawning;
     public waveSpawner whereISpawnedWave;
     Vector3 angleNew;
     float angle;

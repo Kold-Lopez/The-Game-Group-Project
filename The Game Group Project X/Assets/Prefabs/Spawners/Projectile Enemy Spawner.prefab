@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3481289886814634376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.18, y: 0, z: 5.08}
+  m_LocalPosition: {x: -17.4, y: 0, z: 20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5023669394054161305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.73, y: 0, z: -21.2}
+  m_LocalPosition: {x: 4.3, y: 0, z: 16.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3485503133586634734}
   - component: {fileID: 2931522191166718796}
-  - component: {fileID: 4068995821339220962}
+  - component: {fileID: 411688280148520737}
   m_Layer: 0
   m_Name: Projectile Enemy Spawner
   m_TagString: Untagged
@@ -200,7 +200,7 @@ Transform:
   - {fileID: 3171185163499382611}
   - {fileID: 7271247165538826956}
   m_Father: {fileID: 0}
-  m_RootOrder: 48
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2931522191166718796
 CapsuleCollider:
@@ -221,11 +221,11 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 26
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &4068995821339220962
+--- !u!114 &411688280148520737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6200029103913294694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195bfa099c917cf4ea4997185b5eaa9f, type: 3}
+  m_Script: {fileID: 11500000, guid: b746058a56b720043bd007f96996b3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 1110764996064205852, guid: 046ad50a9a228404cbbffdb62701f37e, type: 3}
@@ -244,7 +244,7 @@ MonoBehaviour:
   - {fileID: 3171185163499382611}
   - {fileID: 7271247165538826956}
   numberToSpawn: 4
-  timeBetweenSpawns: 4
+  timeBetweenSpawns: 2
   objectList: []
 --- !u!1 &9178901069132928279
 GameObject:

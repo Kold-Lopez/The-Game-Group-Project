@@ -4095,18 +4095,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2927655134987726651, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927655134987726651, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 20.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2931522191166718796, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
-      propertyPath: m_Radius
-      value: 26
-      objectReference: {fileID: 0}
     - target: {fileID: 3485503133586634734, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
       propertyPath: m_RootOrder
       value: 67
@@ -4154,14 +4142,6 @@ PrefabInstance:
     - target: {fileID: 6200029103913294694, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
       propertyPath: m_Name
       value: Projectile Enemy Spawner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271247165538826956, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7271247165538826956, guid: 14c5210409f0b4a4ba6dc5a16a367209, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 16.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8252,33 +8232,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 919159627306546845, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1501755041540430768, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508105460885256193, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508105460885256193, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -12.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 5544682128782028424, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -14.46
-      objectReference: {fileID: 0}
     - target: {fileID: 8693942505493200835, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
       propertyPath: m_Name
       value: Melee Enemy Spawner (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8887867641262362380, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -16.47
       objectReference: {fileID: 0}
     - target: {fileID: 9082842336032126455, guid: 05a1c1ad99afbe4498c17baa68bc281a, type: 3}
       propertyPath: m_RootOrder
@@ -9572,10 +9528,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1749548308021502331, guid: a0f62ca43dcc00e43b6d318e9231441e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -42.44
-      objectReference: {fileID: 0}
     - target: {fileID: 2263800964500561046, guid: a0f62ca43dcc00e43b6d318e9231441e, type: 3}
       propertyPath: m_Name
       value: Jugg Spawner
