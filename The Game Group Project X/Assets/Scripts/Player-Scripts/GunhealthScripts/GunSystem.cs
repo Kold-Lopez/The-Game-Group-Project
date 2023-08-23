@@ -34,6 +34,7 @@ public class GunSystem : MonoBehaviour
     [SerializeField] bool gameStartStats;
     private bool isReloading;
     private bool gunAmmoAdded = false;
+    private int previousClipAmmo;
     private int ammoToTake;
     private bool noAmmoPistol;
     private bool noAmmoThompson;
@@ -195,10 +196,24 @@ public class GunSystem : MonoBehaviour
             }
 
             ammoToTake = gunList[selectedGun].weaponClipSize - gunList[selectedGun].currentAmmo;
+            previousClipAmmo = gunList[selectedGun].currentAmmo;
             gunList[selectedGun].currentAmmo = 0;
+
             yield return new WaitForSeconds(gunList[selectedGun].ReloadTime);
-            gunList[selectedGun].maxAmmo -= ammoToTake;
-            gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+
+            if (gunList[selectedGun].maxAmmo <= ammoToTake)
+            {
+                ammoToTake = gunList[selectedGun].maxAmmo;
+                gunList[selectedGun].maxAmmo -= ammoToTake;
+                gunList[selectedGun].currentAmmo += ammoToTake + previousClipAmmo;
+
+            }
+            else if(gunList[selectedGun].maxAmmo > ammoToTake)
+            {
+                gunList[selectedGun].maxAmmo -= ammoToTake;
+                gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+            }
+
 
             if (gunList[selectedGun].weaponDifferentiator == "Pistol")
             {
