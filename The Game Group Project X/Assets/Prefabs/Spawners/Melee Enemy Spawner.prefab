@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725159496118039613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.32, y: 0, z: -2.19}
+  m_LocalPosition: {x: -4.32, y: 0, z: -14.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3392248724942164155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.32, y: 0, z: 0.5}
+  m_LocalPosition: {x: -16.47, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3473810385950044162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.03, y: 0, z: -3.48}
+  m_LocalPosition: {x: 4.07, y: 0, z: -12.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8330358450767126816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.35, y: 0, z: 2.18}
+  m_LocalPosition: {x: 17.7, y: 0, z: 2.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,7 +222,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9082842336032126455}
   - component: {fileID: 1501755041540430768}
-  - component: {fileID: 4790959181055817355}
+  - component: {fileID: 8054746790530582388}
+  - component: {fileID: 4753704256504516144}
   m_Layer: 0
   m_Name: Melee Enemy Spawner
   m_TagString: Untagged
@@ -247,7 +248,7 @@ Transform:
   - {fileID: 919159627306546845}
   - {fileID: 1508105460885256193}
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1501755041540430768
 SphereCollider:
@@ -268,9 +269,9 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6
+  m_Radius: 2
   m_Center: {x: 1, y: 0, z: 0}
---- !u!114 &4790959181055817355
+--- !u!114 &8054746790530582388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,7 +280,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8693942505493200835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195bfa099c917cf4ea4997185b5eaa9f, type: 3}
+  m_Script: {fileID: 11500000, guid: b746058a56b720043bd007f96996b3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 0}
+  spawnPos: []
+  numberToSpawn: 0
+  timeBetweenSpawns: 0
+  objectList: []
+--- !u!114 &4753704256504516144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693942505493200835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b746058a56b720043bd007f96996b3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 2359830560157304846, guid: deaf4154b5b08764d8ae395c09381dad, type: 3}
@@ -289,5 +307,5 @@ MonoBehaviour:
   - {fileID: 919159627306546845}
   - {fileID: 1508105460885256193}
   numberToSpawn: 4
-  timeBetweenSpawns: 2
+  timeBetweenSpawns: 1
   objectList: []
