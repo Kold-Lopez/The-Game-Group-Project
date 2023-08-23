@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public GameObject shopMenu;
     public TextMeshProUGUI enemiesRemainingTxt;
     public TextMeshProUGUI waveTxt;
     public TextMeshProUGUI ammoCur;
@@ -113,5 +114,10 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         damageFlash.SetActive(false);
     }
-
+    public void enterShop()
+    {
+        statePaused();
+        activeMenu = shopMenu;
+        shopMenu.SetActive(isPaused);
+    }
 }

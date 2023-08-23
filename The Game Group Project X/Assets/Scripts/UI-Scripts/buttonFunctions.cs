@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
 {
+    [SerializeField] GameObject shotDrop;
+    [SerializeField] GameObject rifleDrop;
+    [SerializeField] GameObject healthDrop;
+    [SerializeField] GameObject barDrop;
+    [SerializeField] GameObject shopCart;
     
     public void resume()
     {
@@ -35,5 +40,42 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
-    
+    public void buyShot()
+    {
+        int price = 1;
+        if (gameManager.instance.playerScript.coinAmount >= price)
+        {
+            Instantiate(shotDrop,shopCart.transform.position,transform.rotation);
+            gameManager.instance.playerScript.coinAmount -= price;
+        }
+    }
+    public void buyRifle()
+    {
+        int price = 0;
+        if (gameManager.instance.playerScript.coinAmount >= price)
+        {
+            Instantiate(rifleDrop, shopCart.transform.position, transform.rotation);
+            gameManager.instance.playerScript.coinAmount -= price;
+        }
+    }
+    public void buyHealth()
+    {
+        int price = 0;
+        if (gameManager.instance.playerScript.coinAmount >= price)
+        {
+            Instantiate(healthDrop, shopCart.transform.position, transform.rotation);
+            gameManager.instance.playerScript.coinAmount -= price;
+        }
+    }
+    public void buyBar()
+    {
+        int price = 0;
+        if (gameManager.instance.playerScript.coinAmount >= price)
+        {
+            Instantiate(barDrop, shopCart.transform.position, transform.rotation);
+            gameManager.instance.playerScript.coinAmount -= price;
+        }
+    }
+
+
 }

@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour, IDamage
     [SerializeField] int jumpMax;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
-    [SerializeField] int coinAmount;
+    public int coinAmount = 0;
 
     //[SerializeField] GameObject coins;
 
