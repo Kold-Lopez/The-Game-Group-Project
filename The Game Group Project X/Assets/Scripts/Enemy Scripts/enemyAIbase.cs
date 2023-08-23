@@ -9,6 +9,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject gun;
 
     [SerializeField] int HP;
     [SerializeField] int speed;
@@ -45,28 +46,34 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
         angle = gameManager.instance.player.transform.position.y - shootpos.position.y;
 
-
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        if (agent.isActiveAndEnabled)
         {
-            facePlayer();
-            if (!isShooting)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                animator.SetTrigger("InRange");
-                //StartCoroutine(Shoot());
+                facePlayer();
+                if (!isShooting)
+                {
+                    animator.SetTrigger("InRange");
+                    //StartCoroutine(Shoot());
+                }
+
+                animator.SetBool("Moving", false);
             }
-            animator.SetBool("Moving", false);
-        }
-        else
-        {
-            animator.SetBool("Moving", true);
-        }
-            agent.SetDestination(gameManager.instance.player.transform.position);
-            
-        
+            else
+            {
+                animator.SetBool("Moving", true);
+            }
 
-        
+            if (HP > 0)
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+                
+            }
+        }
 
-        
+
+
+
 
     }
     public void takeDamage(int amount)
@@ -78,12 +85,18 @@ public class enemyAIbase : MonoBehaviour, IDamage
         {
             //gameManager.instance.UpdateGameGoal(-1);
             //isspawner.HeyIdied();
-
+            animator.SetBool("Move", false);
+            animator.SetBool("Moving", false);
+            animator.SetBool("IsDead", true);
             GetComponent<CapsuleCollider>().enabled = false;
+            
+            //agent.enabled = false;
+
             //whereISpawnedWave.updateEnemyNumber();
 
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+        
     }
 
     IEnumerator flashdmg()
@@ -124,4 +137,17 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     }
      */
+    public void takeDamagAnim()
+    {
+        
+        //animator.SetTrigger("InRange");
+        
+        agent.enabled = false;
+        StopAllCoroutines();
+        Destroy(gameObject);
+    }
+    public void DestroyGun()
+    {
+        Destroy(gun);
+    }
 }

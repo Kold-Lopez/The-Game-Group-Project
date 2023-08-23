@@ -135,7 +135,7 @@ Transform:
   - {fileID: 4223213801821777366}
   - {fileID: 779284707218871210}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3473272008795423790
 Animator:
@@ -147,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 1110764996064205852}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 152e84f306fd84d4f994be0b2beba996, type: 3}
-  m_Controller: {fileID: 9100000, guid: 372dbce67a091f640ae3c39cbee3292a, type: 2}
+  m_Controller: {fileID: 9100000, guid: d55fce9028372d24f94d25a54a8f5f93, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -172,12 +172,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 8952771822133434627}
   agent: {fileID: 3739977331130114400}
+  animator: {fileID: 3473272008795423790}
+  gun: {fileID: 7262598955740981374}
   HP: 10
   speed: 7
   playerfacespeed: 10
   shootrate: 3
   bullet: {fileID: 258264642691960529, guid: 4272e23e2a45a1542a095d30fe70a9fb, type: 3}
   shootpos: {fileID: 407869156062768893}
+  isspawning: {fileID: 0}
+  whereISpawnedWave: {fileID: 0}
 --- !u!195 &3739977331130114400
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 7080111446607688958}
   - component: {fileID: 2077461439987757203}
   - component: {fileID: 6015537758585780397}
+  - component: {fileID: 99256313199042584}
   m_Layer: 0
   m_Name: LAxe
   m_TagString: Untagged
@@ -916,6 +917,19 @@ CapsuleCollider:
   m_Height: 1.19
   m_Direction: 2
   m_Center: {x: 0.4, y: -0.000000481432, z: 1}
+--- !u!114 &99256313199042584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484022017127617478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3771c04f38618444a8fd118a87c4f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &4510911443616297637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,6 +1604,7 @@ GameObject:
   - component: {fileID: 4890568195548890799}
   - component: {fileID: 6890283717390048739}
   - component: {fileID: 6166756102180551331}
+  - component: {fileID: 3117761306658419269}
   m_Layer: 0
   m_Name: RAxe (1)
   m_TagString: Untagged
@@ -1721,3 +1736,16 @@ CapsuleCollider:
   m_Height: 1.19
   m_Direction: 2
   m_Center: {x: 0.4, y: -0.000000481432, z: 1}
+--- !u!114 &3117761306658419269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8653778213840805079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3771c04f38618444a8fd118a87c4f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
