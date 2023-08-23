@@ -145,7 +145,15 @@ public class playerController : MonoBehaviour, IDamage
         HP = HPMax;
         updatePlayerUI();
         characterController.enabled = false;
+        if (gameManager.instance.level2)
+        {
+            transform.position = gameManager.instance.level2Spawn.transform.position;
+        }
+        else
+        {
         transform.position = gameManager.instance.playerSpawnPos.transform.position;
+
+        }
         characterController.enabled = true;
     }
 
