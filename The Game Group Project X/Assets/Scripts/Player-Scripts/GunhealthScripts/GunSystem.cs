@@ -10,6 +10,8 @@ public class GunSystem : MonoBehaviour
     [Header("----- Gun Stuff-----")]
     [SerializeField] List<GUNtemp> gunList = new List<GUNtemp>();
     [SerializeField] GUNtemp Pistol;
+    [SerializeField] GUNtemp Thompson;
+    [SerializeField] GUNtemp Shotgun;
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject gunModel2;
     [SerializeField] GameObject gunModel3;
@@ -29,6 +31,7 @@ public class GunSystem : MonoBehaviour
 
 
     [SerializeField] bool StartActive;
+    [SerializeField] bool gameStartStats;
     private bool isReloading;
     private bool gunAmmoAdded = false;
     private int ammoToTake;
@@ -38,6 +41,12 @@ public class GunSystem : MonoBehaviour
     //// Start is called before the first frame update
     void Start()
     {
+        if(gameStartStats == true)
+        {
+            Pistol.maxAmmo = Pistol.gameStartAmmo;
+            Thompson.maxAmmo = Thompson.gameStartAmmo;
+            Shotgun.maxAmmo = Shotgun.gameStartAmmo;
+        }
         if(StartActive == true)
         {
             gunList.Add(Pistol);

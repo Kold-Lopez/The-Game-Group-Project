@@ -1363,7 +1363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5141968015908636807
 Transform:
   m_ObjectHideFlags: 0
@@ -1538,6 +1538,8 @@ MonoBehaviour:
   selectedGun: 0
   gunList: []
   Pistol: {fileID: 11400000, guid: 4877090607887fe46ad831f7b7e77931, type: 2}
+  Thompson: {fileID: 11400000, guid: e48274b01c0853e46914e30864dad5db, type: 2}
+  Shotgun: {fileID: 11400000, guid: 55059e42b5992a94bb94ec0fc75c4087, type: 2}
   gunModel: {fileID: 6298644813752181599}
   gunModel2: {fileID: 6148840410082719209}
   gunModel3: {fileID: 6357931546544063565}
@@ -1551,6 +1553,7 @@ MonoBehaviour:
   ReloadTime: 5
   weaponName: 
   StartActive: 1
+  gameStartStats: 0
 --- !u!33 &4078959314893782836
 MeshFilter:
   m_ObjectHideFlags: 0
