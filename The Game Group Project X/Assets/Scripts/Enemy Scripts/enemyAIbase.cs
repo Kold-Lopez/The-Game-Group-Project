@@ -10,6 +10,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
     [SerializeField] GameObject gun;
+    [SerializeField] GameObject coin;
 
     [SerializeField] int HP;
     [SerializeField] int speed;
@@ -40,14 +41,25 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
     void Update()
     {
-        playerDir = gameManager.instance.player.transform.position - shootpos.position;
-
-
-
-        angle = gameManager.instance.player.transform.position.y - shootpos.position.y;
 
         if (agent.isActiveAndEnabled)
         {
+            if (shootpos != null)
+            {
+
+
+                playerDir = gameManager.instance.player.transform.position - shootpos.position;
+
+                if (gameManager.instance.player.transform.position - shootpos.position != null)
+                {
+                    angleNew = gameManager.instance.player.transform.position - shootpos.position;
+                }
+
+
+                angle = gameManager.instance.player.transform.position.y - shootpos.position.y;
+
+            }
+
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 facePlayer();
@@ -88,7 +100,11 @@ public class enemyAIbase : MonoBehaviour, IDamage
             animator.SetBool("Move", false);
             animator.SetBool("Moving", false);
             animator.SetBool("IsDead", true);
+            
+            //Instantiate(coin, angleNew, Quaternion.identity);
+            
             GetComponent<CapsuleCollider>().enabled = false;
+            
             
             //agent.enabled = false;
 
@@ -139,15 +155,23 @@ public class enemyAIbase : MonoBehaviour, IDamage
      */
     public void takeDamagAnim()
     {
-        
+
         //animator.SetTrigger("InRange");
-        
+        shootpos = null;
         agent.enabled = false;
+
+        
         StopAllCoroutines();
+        
         Destroy(gameObject);
+
     }
     public void DestroyGun()
     {
         Destroy(gun);
+    }
+    private void OnDestroy()
+    {
+        Instantiate(coin, transform.position + new Vector3(0,1), Quaternion.identity);
     }
 }

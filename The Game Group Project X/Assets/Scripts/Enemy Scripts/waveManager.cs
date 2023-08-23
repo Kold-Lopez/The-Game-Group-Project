@@ -32,16 +32,20 @@ public class waveManager : MonoBehaviour
     public IEnumerator startWave()
     {
 
-            waveCurrent++;
 
-        if (waveCurrent < 5)
+        if (waveCurrent < 4)
         {
+            waveCurrent++;
 
             yield return new WaitForSeconds(timeBetweenWaves);
 
             gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn); //Updates wave Counter
             spawners[waveCurrent - 1].startWave();
 
+        }
+        else
+        {
+                  //Enable Next Room UI Here
         }
 
         if (level2)
@@ -50,7 +54,7 @@ public class waveManager : MonoBehaviour
 
             yield return new WaitForSeconds(timeBetweenWaves);
 
-            gameManager.instance.UpdateGameGoal(0);
+            gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn);
 
             if (waveCurrent <= 10)
             {

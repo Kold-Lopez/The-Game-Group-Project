@@ -78,7 +78,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
             GetComponent<CapsuleCollider>().enabled = false;
 
             whereISpawnedWave.updateEnemyNumber();
-            Instantiate(coin, transform.position, transform.rotation);
+            //Instantiate(coin, transform.position, transform.rotation);
 
         }
         else
@@ -99,8 +99,13 @@ public class meleeEnemy : MonoBehaviour, IDamage
         
         agent.enabled = false;
         StopAllCoroutines();
+        //Instantiate(coin, transform);
         //colliderSph.enabled = false;
         //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
         Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        Instantiate(coin, transform.position + new Vector3(0, 1), Quaternion.identity);
     }
 }

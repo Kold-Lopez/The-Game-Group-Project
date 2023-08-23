@@ -228,6 +228,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+--- !u!1 &436779279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1834380429455666644, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
+  m_PrefabInstance: {fileID: 5976897519370697274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &526257683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349,6 +354,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9036950214722983591, guid: deaf4154b5b08764d8ae395c09381dad, type: 3}
+      propertyPath: coin
+      value: 
+      objectReference: {fileID: 436779279}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -536,6 +545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5518926290117736339, guid: 046ad50a9a228404cbbffdb62701f37e, type: 3}
+      propertyPath: coin
+      value: 
+      objectReference: {fileID: 436779279}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2910,11 +2923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1622231674450138530, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.539
+      value: 3.5978
       objectReference: {fileID: 0}
     - target: {fileID: 1622231674450138530, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.177132
+      value: 15.7711
       objectReference: {fileID: 0}
     - target: {fileID: 1622231674450138530, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
       propertyPath: m_LocalRotation.w
