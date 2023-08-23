@@ -31,35 +31,35 @@ public class waveManager : MonoBehaviour
 
     public IEnumerator startWave()
     {
-       
-            waveCurrent++;       
-           
+
+            waveCurrent++;
+
+        if (waveCurrent < 5)
+        {
+
             yield return new WaitForSeconds(timeBetweenWaves);
 
-        gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn); //Updates wave Counter
-
-        if(waveCurrent <5)
-        {
+            gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn); //Updates wave Counter
             spawners[waveCurrent - 1].startWave();
 
         }
 
-        if(level2)
+        if (level2)
         {
-            waveCurrent++;     
+            waveCurrent++;
 
             yield return new WaitForSeconds(timeBetweenWaves);
 
-            gameManager.instance.UpdateGameGoal(0); 
+            gameManager.instance.UpdateGameGoal(0);
 
-            if (waveCurrent <= 6)
+            if (waveCurrent <= 10)
             {
                 spawners[waveCurrent - 1].startWave();
 
             }
         }
 
-        
+
 
     }
 }
