@@ -16,7 +16,8 @@ public class CheckPoint : MonoBehaviour
             waveManager.instance.level2 = true;
             gameManager.instance.level2 = true;
             gameManager.instance.UpdateGameGoal(0);
-            waveManager.instance.startWave();
+            StartCoroutine(waveManager.instance.startWave());
+            
         }
     }
 }
