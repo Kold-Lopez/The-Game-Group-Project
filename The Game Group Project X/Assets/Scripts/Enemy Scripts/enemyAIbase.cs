@@ -26,7 +26,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
     bool playerinRange;
     private Animator animator;
 
-    public Spawner isspawner;
+    public waveSpawner whereISpawnedWave;
     Vector3 angleNew;
     float angle;
     float sub = 30;
@@ -70,7 +70,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
             //isspawner.HeyIdied();
 
             GetComponent<CapsuleCollider>().enabled = false;
-            whereISpawnedWave.updateEnemyNumber();
+            //whereISpawnedWave.updateEnemyNumber();
 
             Destroy(gameObject);
         }

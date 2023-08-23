@@ -53,28 +53,35 @@ public class bossAI : MonoBehaviour, IDamage
         agentVel = 0;
         playerDir = gameManager.instance.player.transform.position - transform.position;
         animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
-        
-        
-        if (agent.remainingDistance <= agent.stoppingDistance)
+
+        if (agent.isActiveAndEnabled)
         {
-            facePlayer();
-            if (HP <= 999 && HP > 501)
+            if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                phase3();
-            }
-            if(HP <= 500 && HP > 251)
-            {
-                if (!isShooting)
+                facePlayer();
+                if (HP <= 999 && HP > 701)
                 {
                     StartCoroutine(phase1());
-                    StartCoroutine(phase2());
                 }
-            }
-            else if(HP <= 250)
-            {
-                //phase3();
-            }
+                else if (HP <= 700 && HP > 501)
+                {
+                    if (!isShooting)
+                    {
+                        StartCoroutine(phase2());
+                    }
+                }
+                else if (HP <= 500 && HP > 1)
+                {
+                    phase3();
+                }
 
+                //DO NOT UNCOMMENT IT WILL CRASH UNITY
+                //else if (HP <= 250 && HP > 1)
+                //{
+                //    StartCoroutine(phase2());
+                //    phase3();
+                //}
+            }
         }
         
         
@@ -94,6 +101,8 @@ public class bossAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             //gameManager.instance.UpdateGameGoal(-1);
+            animator.SetBool("Phase3", false);
+            animator.SetBool("IsDead", true);  
         }
     }
     IEnumerator flashDamage()
@@ -131,13 +140,12 @@ public class bossAI : MonoBehaviour, IDamage
     {
         animator.SetBool("Punch", false);
         animator.SetBool("Phase3", true);
-        if(animator.GetFloat("Speed")  <= 0.02f)
-        {
-            agentVel++;
-        }
-        else if(animator.GetFloat("Speed") >= 0.98) 
-        {
-            agentVel--;
-        }
+
+    }
+    public void Death()
+    {
+        agent.enabled = false;
+        StopAllCoroutines();
+        Destroy(gameObject);
     }
 }

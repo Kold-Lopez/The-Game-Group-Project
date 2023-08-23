@@ -24,7 +24,7 @@ public class doorScript : MonoBehaviour
     {
         target = other.GetComponent<SphereCollider>();
 
-        model.transform.position = new Vector3(10,10,10);
+        model.transform.position = new Vector3(model.transform.position.x,model.transform.position.y +10,model.transform.position.z);
     }
     private void OnTriggerExit(Collider other)
     {

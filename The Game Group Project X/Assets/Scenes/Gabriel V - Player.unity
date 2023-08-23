@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 797998113}
   - component: {fileID: 797998112}
   - component: {fileID: 797998111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 1803253170}
   - component: {fileID: 1803253174}
   - component: {fileID: 1803253175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
