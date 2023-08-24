@@ -56,7 +56,7 @@ public class waveManager : MonoBehaviour
 
             gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn);
 
-            if (waveCurrent <= 10)
+            if (waveCurrent < 10)
             {
                 spawners[waveCurrent - 1].startWave();
 

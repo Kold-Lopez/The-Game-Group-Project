@@ -65,43 +65,47 @@ public class waveSpawner : MonoBehaviour
             numberSpawned++;
 
 
-            if (objectToSpawn2 != null)
-            {
-                GameObject objectSpawn2 = Instantiate(objectToSpawn2, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
-                numberSpawned++;
-                numberToSpawn++;
-                if (objectSpawn.GetComponent<meleeEnemy>())
-                {
-                    objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
-                }
-                else if (objectSpawn.GetComponent<juggEnemy>())
-                {
-                    objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
-                }
-                else if (objectSpawn.GetComponent<enemyAIbase>())
-                {
-                    objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
-                }
-            }
 
-            else if (objectToSpawn3 != null)
-            {
-                GameObject objectSpawn3 = Instantiate(objectToSpawn3, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
-                numberSpawned++;
-                numberToSpawn++;
-                if (objectSpawn.GetComponent<meleeEnemy>())
-                {
-                    objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
-                }
-                else if (objectSpawn.GetComponent<juggEnemy>())
-                {
-                    objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
-                }
-                else if (objectSpawn.GetComponent<enemyAIbase>())
-                {
-                    objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
-                }
-            }
+            //Used to spawn multiple enemies, Logic throws an error on killing different enemies, and does not update the enemy counter properly
+
+
+            //if (objectToSpawn2 != null)
+            //{
+            //    GameObject objectSpawn2 = Instantiate(objectToSpawn2, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+            //    numberSpawned++;
+            //    numberToSpawn++;
+            //    if (objectSpawn.GetComponent<meleeEnemy>())
+            //    {
+            //        objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
+            //    }
+            //    else if (objectSpawn.GetComponent<juggEnemy>())
+            //    {
+            //        objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
+            //    }
+            //    else if (objectSpawn.GetComponent<enemyAIbase>())
+            //    {
+            //        objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
+            //    }
+            //}
+
+            //else if (objectToSpawn3 != null)
+            //{
+            //    GameObject objectSpawn3 = Instantiate(objectToSpawn3, spawnPos[Random.Range(0, spawnPos.Length)].position, objectToSpawn.transform.rotation);
+            //    numberSpawned++;
+            //    numberToSpawn++;
+            //    if (objectSpawn.GetComponent<meleeEnemy>())
+            //    {
+            //        objectSpawn.GetComponent<meleeEnemy>().whereISpawnedWave = this;
+            //    }
+            //    else if (objectSpawn.GetComponent<juggEnemy>())
+            //    {
+            //        objectSpawn.GetComponent<juggEnemy>().whereISpawnedWave = this;
+            //    }
+            //    else if (objectSpawn.GetComponent<enemyAIbase>())
+            //    {
+            //        objectSpawn.GetComponent<enemyAIbase>().whereISpawnedWave = this;
+            //    }
+            //}
 
 
             yield return new WaitForSeconds(timeBetweenSpawns);
