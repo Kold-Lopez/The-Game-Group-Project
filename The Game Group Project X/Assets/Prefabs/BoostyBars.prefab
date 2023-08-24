@@ -278,8 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoostyBars: {fileID: 3276901700346266218}
-  SpeedIncrease: 10
-  SprintSpeedIncrease: 10
+  SpeedIncrease: 5
+  SprintSpeedIncrease: 5
   effectDuration: 120
 --- !u!135 &6759423931658989770
 SphereCollider:
