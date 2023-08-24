@@ -142,7 +142,7 @@ Transform:
   - {fileID: 5293589695483499063}
   - {fileID: 2283389348999166929}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4778623419371066264
 MeshFilter:
@@ -228,12 +228,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 7418640033441885289, guid: 6c8a998fd2ca63346b60109f0134a360, type: 3}
+  objectToSpawn2: {fileID: 0}
+  objectToSpawn3: {fileID: 0}
   spawnPos:
   - {fileID: 7374385746038292928}
   - {fileID: 3315400362830665995}
   - {fileID: 5293589695483499063}
   - {fileID: 2283389348999166929}
-  numberToSpawn: 4
+  numberToSpawn: 1
   timeBetweenSpawns: 0.2
   objectList: []
 --- !u!1 &3516407150101057407
