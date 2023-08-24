@@ -38,7 +38,7 @@ public class coinPickup : MonoBehaviour
     }
     IEnumerator CoinDestroy()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(45);
         Destroy(gameObject);
     }
     private void OnApplicationQuit()
