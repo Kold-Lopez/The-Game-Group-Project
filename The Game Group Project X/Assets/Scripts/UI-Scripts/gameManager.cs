@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject loseMenu;
     public GameObject shopMenu;
+    public LeShop currentShop;
     public TextMeshProUGUI enemiesRemainingTxt;
     public TextMeshProUGUI waveTxt;
     public TextMeshProUGUI ammoCur;
