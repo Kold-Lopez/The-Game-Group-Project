@@ -160,6 +160,7 @@ public class enemyAIbase : MonoBehaviour, IDamage
 
         //animator.SetTrigger("InRange");
         shootpos = null;
+        Instantiate(coin, transform.position + new Vector3(0, 1), Quaternion.identity);
         agent.enabled = false;
 
         
@@ -172,8 +173,5 @@ public class enemyAIbase : MonoBehaviour, IDamage
     {
         Destroy(gun);
     }
-    private void OnDestroy()
-    {
-        Instantiate(coin, transform.position + new Vector3(0,1), Quaternion.identity);
-    }
+
 }

@@ -13,6 +13,7 @@ public class coinPickup : MonoBehaviour
     void Start()
     {
         coinCurr = coinMin;
+        StartCoroutine(CoinDestroy());
 
     }
 
@@ -34,5 +35,14 @@ public class coinPickup : MonoBehaviour
         coinCurr += total;
 
         Debug.Log(coinCurr);
+    }
+    IEnumerator CoinDestroy()
+    {
+        yield return new WaitForSeconds(30);
+        Destroy(gameObject);
+    }
+    private void OnApplicationQuit()
+    {
+        Destroy(gameObject);
     }
 }

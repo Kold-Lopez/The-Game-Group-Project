@@ -98,14 +98,12 @@ public class meleeEnemy : MonoBehaviour, IDamage
     {
         
         agent.enabled = false;
+        Instantiate(coin, transform.position + new Vector3(0, 1), Quaternion.identity);
         StopAllCoroutines();
         //Instantiate(coin, transform);
         //colliderSph.enabled = false;
         //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
         Destroy(gameObject);
     }
-    private void OnDestroy()
-    {
-        Instantiate(coin, transform.position + new Vector3(0, 1), Quaternion.identity);
-    }
+
 }
