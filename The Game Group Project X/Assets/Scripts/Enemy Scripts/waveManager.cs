@@ -9,6 +9,7 @@ public class waveManager : MonoBehaviour
     public static waveManager instance;
     [SerializeField] waveSpawner[] spawners;
     [SerializeField] int timeBetweenWaves;
+
     public int waveCurrent;
     public bool level2 = false;
 
@@ -42,9 +43,8 @@ public class waveManager : MonoBehaviour
             spawners[waveCurrent - 1].startWave();
 
         }
-        else if (!level2)
+        else
         {
-           gameManager.instance.advancePrompt.SetActive(true);
                   //Enable Next Room UI Here
         }
 
