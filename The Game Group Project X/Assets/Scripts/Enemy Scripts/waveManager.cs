@@ -48,7 +48,7 @@ public class waveManager : MonoBehaviour
                   //Enable Next Room UI Here
         }
 
-        if (level2)
+        if (level2 && waveCurrent < 9)
         {
             waveCurrent++;
 
@@ -56,11 +56,9 @@ public class waveManager : MonoBehaviour
 
             gameManager.instance.UpdateGameGoal(spawners[waveCurrent - 1].numberToSpawn);
 
-            if (waveCurrent < 10)
-            {
+            
                 spawners[waveCurrent - 1].startWave();
 
-            }
         }
 
 
