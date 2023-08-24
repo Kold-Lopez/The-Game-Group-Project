@@ -277,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea42b2eeff2c2814fa2815399431dd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 6759423931658989770}
   BoostyBars: {fileID: 3276901700346266218}
-  SpeedIncrease: 5
   SprintSpeedIncrease: 5
   effectDuration: 120
 --- !u!135 &6759423931658989770
