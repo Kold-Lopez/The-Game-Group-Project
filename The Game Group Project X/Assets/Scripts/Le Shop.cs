@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class LeShop : MonoBehaviour
 {
+    public GameObject shotDrop;
+    public GameObject rifleDrop;
+    public GameObject healthDrop;
+    public GameObject barDrop;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,7 @@ public class LeShop : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        gameManager.instance.currentShop = this;
         gameManager.instance.enterShop();
     }
 }

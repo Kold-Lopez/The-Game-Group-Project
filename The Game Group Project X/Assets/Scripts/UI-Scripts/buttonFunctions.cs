@@ -9,7 +9,6 @@ public class buttonFunctions : MonoBehaviour
     [SerializeField] GameObject rifleDrop;
     [SerializeField] GameObject healthDrop;
     [SerializeField] GameObject barDrop;
-    [SerializeField] GameObject shopCart;
     
     public void resume()
     {
@@ -45,7 +44,7 @@ public class buttonFunctions : MonoBehaviour
         int price = 0;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
-            Instantiate(shotDrop,shopCart.transform.position,transform.rotation);
+            Instantiate(shotDrop,gameManager.instance.currentShop.shotDrop.transform.position,transform.rotation);
             gameManager.instance.playerScript.coinAmount -= price;
         }
     }
@@ -54,7 +53,7 @@ public class buttonFunctions : MonoBehaviour
         int price = 0;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
-            Instantiate(rifleDrop, shopCart.transform.position, transform.rotation);
+            Instantiate(rifleDrop, gameManager.instance.currentShop.rifleDrop.transform.position, transform.rotation);
             gameManager.instance.playerScript.coinAmount -= price;
         }
     }
@@ -63,7 +62,7 @@ public class buttonFunctions : MonoBehaviour
         int price = 0;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
-            Instantiate(healthDrop, shopCart.transform.position, transform.rotation);
+            Instantiate(healthDrop, gameManager.instance.currentShop.healthDrop.transform.position, transform.rotation);
             gameManager.instance.playerScript.coinAmount -= price;
         }
     }
@@ -72,7 +71,7 @@ public class buttonFunctions : MonoBehaviour
         int price = 0;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
-            Instantiate(barDrop, shopCart.transform.position, transform.rotation);
+            Instantiate(barDrop, gameManager.instance.currentShop.barDrop.transform.position, transform.rotation);
             gameManager.instance.playerScript.coinAmount -= price;
         }
     }

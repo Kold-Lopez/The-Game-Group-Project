@@ -6,6 +6,7 @@ public class doorScript : MonoBehaviour
 {
     [SerializeField] BoxCollider model;
     [SerializeField] SphereCollider target;
+    public waveManager whereISpawnedWave;
 
     private Vector3 start;
 
@@ -22,9 +23,12 @@ public class doorScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        target = other.GetComponent<SphereCollider>();
+        if (whereISpawnedWave.waveCurrent == 4 || whereISpawnedWave.waveCurrent == 9)
+        {
+            target = other.GetComponent<SphereCollider>();
 
-        model.transform.position = new Vector3(model.transform.position.x,model.transform.position.y +10,model.transform.position.z);
+            model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y + 10, model.transform.position.z);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
