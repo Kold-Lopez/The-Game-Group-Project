@@ -1120,7 +1120,7 @@ Transform:
   m_GameObject: {fileID: 6209391254500321808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -39.35, y: 4.61, z: 43.64}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1235615730006174553}
@@ -1172,12 +1172,12 @@ MonoBehaviour:
   HP: 1000
   playerfacespeed: 10
   shootRate: 1
-  bullet: {fileID: 5241206259460172833, guid: 63cb0bd02d02549498950345017a3db3, type: 3}
+  bullet: {fileID: 2472612865545540736, guid: 7173314333d4c3f488b68166841076c7, type: 3}
   shootPosLE: {fileID: 6282008400461793707}
   shootPosRE: {fileID: 9037567846930106241}
-  shootPosRA: {fileID: 7677021354300375981}
-  shootPosLA: {fileID: 2658046107332077354}
-  shootPosGut: {fileID: 964983187352904986}
+  shootPosRA: {fileID: 3826387851982228886}
+  shootPosLA: {fileID: 702971261332882783}
+  shootPosGut: {fileID: 2465792077702941732}
   hitRate: 2
   speed: 10
   animSpeed: 3
