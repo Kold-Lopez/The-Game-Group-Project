@@ -25,6 +25,7 @@ public class GunSystem : MonoBehaviour
     [SerializeField] int shootDmg;
     [SerializeField] float shootRange;
     [SerializeField] int ReloadTime;
+    
     public static int currentAmmo;
     public static int currentReserveAmmo;
     [SerializeField] string weaponName;
@@ -36,9 +37,7 @@ public class GunSystem : MonoBehaviour
     private bool gunAmmoAdded = false;
     private int previousClipAmmo;
     private int ammoToTake;
-    private bool noAmmoPistol;
-    private bool noAmmoThompson;
-    private bool noAmmoShotgun;
+    private bool isThereAmmoCurrently;
     private bool isShooting;
 
     //// Start is called before the first frame update
@@ -96,6 +95,7 @@ public class GunSystem : MonoBehaviour
         shootRange = gunList[selectedGun].shootDist;
         shootRate = gunList[selectedGun].shootRate;
         ReloadTime = (int)gunList[selectedGun].ReloadTime;
+        weaponName = gunList[selectedGun].weaponDifferentiator;
         //pulling out weapon animation
 
         if (gunList[selectedGun].weaponDifferentiator == "Pistol")
@@ -133,6 +133,7 @@ public class GunSystem : MonoBehaviour
        if(gunList[selectedGun].currentAmmo == 0)
        {
            gunList[selectedGun].noAmmo = true;
+           isShooting = false;
        }
        else
        {
@@ -206,12 +207,14 @@ public class GunSystem : MonoBehaviour
                 ammoToTake = gunList[selectedGun].maxAmmo;
                 gunList[selectedGun].maxAmmo -= ammoToTake;
                 gunList[selectedGun].currentAmmo += ammoToTake + previousClipAmmo;
+                gunList[selectedGun].noAmmo = false;
 
             }
             else if(gunList[selectedGun].maxAmmo > ammoToTake)
             {
                 gunList[selectedGun].maxAmmo -= ammoToTake;
                 gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+                gunList[selectedGun].noAmmo = false;
             }
 
 
@@ -233,7 +236,7 @@ public class GunSystem : MonoBehaviour
 
         }
         isShooting = false;
-        gunList[selectedGun].noAmmo = false;
+        
         isReloading = false;
     }
     public void gunPickUP(GUNtemp gun)
@@ -264,6 +267,7 @@ public class GunSystem : MonoBehaviour
             shootRate = gun.shootRate;
             gun.maxAmmo = gun.gameStartAmmo;
             weaponName = gun.weaponDifferentiator;
+            
 
             gun.currentAmmo = gun.weaponClipSize;
 
@@ -285,7 +289,7 @@ public class GunSystem : MonoBehaviour
 
             selectedGun = gunList.Count - 1;
         }
-        
+        gunList[selectedGun].noAmmo = false;
 
     }
 

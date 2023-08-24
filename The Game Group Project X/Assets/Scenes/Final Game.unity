@@ -1048,22 +1048,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5724369938283458621, guid: 0344736746c451044baf2272e923a8a9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5724369938283458621, guid: 0344736746c451044baf2272e923a8a9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5724369938283458621, guid: 0344736746c451044baf2272e923a8a9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -17.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 5724369938283458621, guid: 0344736746c451044baf2272e923a8a9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 33.78
-      objectReference: {fileID: 0}
     - target: {fileID: 7272827614385398984, guid: 0344736746c451044baf2272e923a8a9, type: 3}
       propertyPath: m_Name
       value: TheBoss&HisRoom
@@ -2816,45 +2800,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70709276
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.004455176
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.70709276
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.004455176
-      objectReference: {fileID: 0}
-    - target: {fileID: 1796389968262589130, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 6270442416791043846, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
       propertyPath: m_Name
       value: DoorCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270442416791043846, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7844629376682981311, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
       propertyPath: whereISpawnedWave
