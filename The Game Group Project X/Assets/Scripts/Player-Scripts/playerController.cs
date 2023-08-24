@@ -178,6 +178,7 @@ public class playerController : MonoBehaviour, IDamage
     }
     public void makeManSpeedy(float speedIncrease, float sprintIncrease, int jumpIncrease)
     {
+        baseSpeed += speedIncrease;
         playerSpeed += speedIncrease;
         sprintSpeed += sprintIncrease;
         jumpMax += jumpIncrease;

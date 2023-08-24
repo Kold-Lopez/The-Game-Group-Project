@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -32,12 +33,15 @@ public class bossAI : MonoBehaviour, IDamage
     [SerializeField] int speed;
     [SerializeField] int animSpeed;
 
-    Vector3 playerDir;
+    UnityEngine.Vector3 playerDir;
     bool playerInRange;
     private float agentVel;
     private int startingHP;
     private bool isShooting;
-
+    private float aim1;
+    private float aim2;
+    UnityEngine.Vector3 eyebeam;
+    UnityEngine.Vector3 eyebeam2;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +57,8 @@ public class bossAI : MonoBehaviour, IDamage
         agentVel = 0;
         playerDir = gameManager.instance.player.transform.position - transform.position;
         animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel, Time.deltaTime * animSpeed));
+        aim1 = gameManager.instance.player.transform.position.y - shootPosLE.position.y;
+        aim2 = gameManager.instance.player.transform.position.y - shootPosRE.position.y;
 
         if (agent.isActiveAndEnabled)
         {
@@ -91,8 +97,8 @@ public class bossAI : MonoBehaviour, IDamage
     }
     void facePlayer()
     {
-        Quaternion rot = Quaternion.LookRotation(playerDir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfacespeed);
+        UnityEngine.Quaternion rot = UnityEngine.Quaternion.LookRotation(playerDir);
+        transform.rotation = UnityEngine.Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * playerfacespeed);
     }
     public void takeDamage(int amount)
     {
@@ -128,8 +134,13 @@ public class bossAI : MonoBehaviour, IDamage
         animator.SetBool("Punch", false);
         isShooting = true;
 
-        Instantiate(bullet, shootPosLE.position, transform.rotation);
-        Instantiate(bullet, shootPosRE.position, transform.rotation);
+        eyebeam.Equals(aim1);
+        eyebeam2.Equals(aim2);
+
+        UnityEngine.Quaternion ang = UnityEngine.Quaternion.LookRotation(playerDir, eyebeam);
+        UnityEngine.Quaternion ang2 = UnityEngine.Quaternion.LookRotation(playerDir, eyebeam2);
+        Instantiate(bullet, shootPosLE.position, ang);
+        Instantiate(bullet, shootPosRE.position, ang2);
         Instantiate(bullet, shootPosLA.position, transform.rotation);
         Instantiate(bullet, shootPosRA.position, transform.rotation);
         Instantiate(bullet, shootPosGut.position, transform.rotation);
