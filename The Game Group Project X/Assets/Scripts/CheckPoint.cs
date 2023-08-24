@@ -11,8 +11,10 @@ public class CheckPoint : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        gameManager.instance.advancePrompt.SetActive(false);
         if (other.CompareTag("Player"))
         {
+           
             waveManager.instance.level2 = true;
             gameManager.instance.level2 = true;
             gameManager.instance.UpdateGameGoal(0);

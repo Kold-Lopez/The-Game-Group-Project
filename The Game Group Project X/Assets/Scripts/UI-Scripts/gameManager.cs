@@ -25,6 +25,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI ammoCur;
     public TextMeshProUGUI ammoMax;
     public TextMeshProUGUI coinCount;
+    public GameObject advancePrompt;
     public GameObject damageFlash;
     public Image playerHPBar;
     public Image playerStamBar;

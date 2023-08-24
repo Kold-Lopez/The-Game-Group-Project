@@ -17,6 +17,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void restart()
     {
+
         gameManager.instance.playerScript.spawnPlayer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         
