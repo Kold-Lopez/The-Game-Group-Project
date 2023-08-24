@@ -34,8 +34,11 @@ public class GunSystem : MonoBehaviour
     [SerializeField] bool gameStartStats;
     private bool isReloading;
     private bool gunAmmoAdded = false;
+    private int previousClipAmmo;
     private int ammoToTake;
-    private bool noAmmo;
+    private bool noAmmoPistol;
+    private bool noAmmoThompson;
+    private bool noAmmoShotgun;
     private bool isShooting;
 
     //// Start is called before the first frame update
@@ -129,11 +132,11 @@ public class GunSystem : MonoBehaviour
        //when magazine drops to zero
        if(gunList[selectedGun].currentAmmo == 0)
        {
-           noAmmo = true;
+           gunList[selectedGun].noAmmo = true;
        }
        else
        {
-           noAmmo = false;
+           gunList[selectedGun].noAmmo = false;
        }
 
         //shooting
@@ -152,7 +155,7 @@ public class GunSystem : MonoBehaviour
         //shoot something
         RaycastHit hit;
 
-        if (noAmmo == false)
+        if (gunList[selectedGun].noAmmo == false)
         {
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, gunList[selectedGun].shootDist))
             {
@@ -193,10 +196,24 @@ public class GunSystem : MonoBehaviour
             }
 
             ammoToTake = gunList[selectedGun].weaponClipSize - gunList[selectedGun].currentAmmo;
+            previousClipAmmo = gunList[selectedGun].currentAmmo;
             gunList[selectedGun].currentAmmo = 0;
+
             yield return new WaitForSeconds(gunList[selectedGun].ReloadTime);
-            gunList[selectedGun].maxAmmo -= ammoToTake;
-            gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+
+            if (gunList[selectedGun].maxAmmo <= ammoToTake)
+            {
+                ammoToTake = gunList[selectedGun].maxAmmo;
+                gunList[selectedGun].maxAmmo -= ammoToTake;
+                gunList[selectedGun].currentAmmo += ammoToTake + previousClipAmmo;
+
+            }
+            else if(gunList[selectedGun].maxAmmo > ammoToTake)
+            {
+                gunList[selectedGun].maxAmmo -= ammoToTake;
+                gunList[selectedGun].currentAmmo = gunList[selectedGun].weaponClipSize;
+            }
+
 
             if (gunList[selectedGun].weaponDifferentiator == "Pistol")
             {
@@ -216,7 +233,7 @@ public class GunSystem : MonoBehaviour
 
         }
         isShooting = false;
-        noAmmo = false;
+        gunList[selectedGun].noAmmo = false;
         isReloading = false;
     }
     public void gunPickUP(GUNtemp gun)
@@ -245,6 +262,7 @@ public class GunSystem : MonoBehaviour
             shootDmg = gun.shootDamage;
             shootRange = gun.shootDist;
             shootRate = gun.shootRate;
+            gun.maxAmmo = gun.gameStartAmmo;
             weaponName = gun.weaponDifferentiator;
 
             gun.currentAmmo = gun.weaponClipSize;

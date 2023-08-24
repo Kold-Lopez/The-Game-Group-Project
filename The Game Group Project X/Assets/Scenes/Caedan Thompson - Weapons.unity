@@ -933,10 +933,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6623848714192395598, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
-      propertyPath: gameStartStats
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7707214279334573435, guid: 2d3d111057f979b479fbf6ccf6564474, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -1048,6 +1044,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1919312492756897323, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3794487195038442694, guid: 80538767543b77d41b5ed2da05587d73, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -1293,15 +1293,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4078115047797305225, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.451
+      value: 18.885
       objectReference: {fileID: 0}
     - target: {fileID: 4078115047797305225, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.068
+      value: 0.326
       objectReference: {fileID: 0}
     - target: {fileID: 4078115047797305225, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.598
+      value: -4.645
       objectReference: {fileID: 0}
     - target: {fileID: 4078115047797305225, guid: 86be7109570e668458fe89a4cd422b79, type: 3}
       propertyPath: m_LocalRotation.w

@@ -42,7 +42,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void buyShot()
     {
-        int price = 1;
+        int price = 0;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
             Instantiate(shotDrop,shopCart.transform.position,transform.rotation);
