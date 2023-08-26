@@ -46,7 +46,7 @@ public class bossAI : MonoBehaviour, IDamage
     void Start()
     {
         startingHP = HP;
-        gameManager.instance.UpdateGameGoal(1);
+        //gameManager.instance.UpdateGameGoal(1);
         animator.SetBool("Punch", false);
         
     }
@@ -67,7 +67,11 @@ public class bossAI : MonoBehaviour, IDamage
                 facePlayer();
                 if (HP <= 999 && HP > 701)
                 {
-                    StartCoroutine(phase1());
+                    //StartCoroutine(phase1());
+                    if (!isShooting)
+                    {
+                        StartCoroutine(phase2());
+                    }
                 }
                 else if (HP <= 700 && HP > 501)
                 {

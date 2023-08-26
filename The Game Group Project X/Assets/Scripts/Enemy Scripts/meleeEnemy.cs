@@ -30,7 +30,7 @@ public class meleeEnemy : MonoBehaviour, IDamage
     {
         //collider = GetComponent<SphereCollider>();
         //colliderSph = GetComponent<SphereCollider>();
-        animator.SetBool("IsDead", false);
+        //animator.SetBool("IsDead", false);
 
 
         //gameManager.instance.UpdateGameGoal(1);

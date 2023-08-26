@@ -1039,7 +1039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7957843320970060272}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.164, z: 25.23}
+  m_LocalPosition: {x: -12.768001, y: 0, z: 9.090002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1087,10 +1087,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1145076763912677323}
   agent: {fileID: 8088390217106634682}
+  animator: {fileID: 0}
   playerFaceSpeed: 5
   Hp: 10
   hitRate: 2
   speed: 5
+  animSpeed: 0
+  coin: {fileID: 0}
+  whereISpawnedWave: {fileID: 0}
 --- !u!195 &8088390217106634682
 NavMeshAgent:
   m_ObjectHideFlags: 0
