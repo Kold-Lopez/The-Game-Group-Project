@@ -42,7 +42,7 @@ public class buttonFunctions : MonoBehaviour
 
     public void buyShot()
     {
-        int price = 0;
+        int price = 30;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
             Instantiate(shotDrop,gameManager.instance.currentShop.shotDrop.transform.position,transform.rotation);
@@ -51,7 +51,7 @@ public class buttonFunctions : MonoBehaviour
     }
     public void buyRifle()
     {
-        int price = 0;
+        int price = 50;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
             Instantiate(rifleDrop, gameManager.instance.currentShop.rifleDrop.transform.position, transform.rotation);
@@ -60,7 +60,7 @@ public class buttonFunctions : MonoBehaviour
     }
     public void buyHealth()
     {
-        int price = 0;
+        int price = 50;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
             Instantiate(healthDrop, gameManager.instance.currentShop.healthDrop.transform.position, transform.rotation);
@@ -69,7 +69,7 @@ public class buttonFunctions : MonoBehaviour
     }
     public void buyBar()
     {
-        int price = 0;
+        int price = 30;
         if (gameManager.instance.playerScript.coinAmount >= price)
         {
             Instantiate(barDrop, gameManager.instance.currentShop.barDrop.transform.position, transform.rotation);
