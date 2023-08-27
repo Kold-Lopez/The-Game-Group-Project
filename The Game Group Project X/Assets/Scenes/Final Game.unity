@@ -2800,7 +2800,7 @@ PrefabInstance:
     - target: {fileID: 7844629376682981311, guid: a67f31cd18866254eba7bd94d41e35c0, type: 3}
       propertyPath: whereISpawnedWave
       value: 
-      objectReference: {fileID: 1262085285}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
