@@ -6,7 +6,7 @@ public class doorScript : MonoBehaviour
 {
     [SerializeField] BoxCollider model;
     [SerializeField] SphereCollider target;
-    public waveManager whereISpawnedWave;
+    public waveManager waveCount;
 
     private Vector3 start;
 
@@ -23,7 +23,7 @@ public class doorScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (whereISpawnedWave.waveCurrent == 4 || whereISpawnedWave.waveCurrent == 9)
+        if (waveCount.waveCurrent == 4 || waveCount.waveCurrent == 9)
         {
             target = other.GetComponent<SphereCollider>();
 
