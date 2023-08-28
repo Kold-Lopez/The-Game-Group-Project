@@ -67,11 +67,8 @@ public class bossAI : MonoBehaviour, IDamage
                 facePlayer();
                 if (HP <= 999 && HP > 701)
                 {
-                    //StartCoroutine(phase1());
-                    if (!isShooting)
-                    {
-                        StartCoroutine(phase2());
-                    }
+                    StartCoroutine(phase1());
+                    
                 }
                 else if (HP <= 700 && HP > 501)
                 {
