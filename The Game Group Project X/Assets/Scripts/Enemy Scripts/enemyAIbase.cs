@@ -80,6 +80,8 @@ public class enemyAIbase : MonoBehaviour, IDamage
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
                 
+
+
             }
         }
 

@@ -91,7 +91,7 @@ public class bossAI : MonoBehaviour, IDamage
             }
             if(HP <= 0)
             {
-                gameManager.instance.winMenu.SetActive(true);
+                gameManager.instance.YouWin();
             }
         }
         

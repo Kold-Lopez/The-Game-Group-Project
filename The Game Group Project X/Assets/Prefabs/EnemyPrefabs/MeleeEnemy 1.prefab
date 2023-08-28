@@ -264,7 +264,7 @@ Transform:
   - {fileID: 1912454004069891979}
   - {fileID: 7189321014273118217}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4913459131536105244
 Animator:
@@ -307,7 +307,7 @@ MonoBehaviour:
   hitRate: 2
   speed: 5
   animSpeed: 6
-  coin: {fileID: 0}
+  coin: {fileID: 1834380429455666644, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
   whereISpawnedWave: {fileID: 0}
 --- !u!195 &4309725819623159858
 NavMeshAgent:
