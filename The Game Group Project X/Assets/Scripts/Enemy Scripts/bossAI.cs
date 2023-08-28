@@ -114,7 +114,7 @@ public class bossAI : MonoBehaviour, IDamage
             
             animator.SetBool("Phase3", false);
             animator.SetBool("IsDead", true);
-            gameManager.instance.winMenu.SetActive(true);
+            //gameManager.instance.winMenu.SetActive(true);
         }
     }
     IEnumerator flashDamage()
