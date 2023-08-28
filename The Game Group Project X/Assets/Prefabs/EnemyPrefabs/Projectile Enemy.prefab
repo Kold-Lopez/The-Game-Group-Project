@@ -175,11 +175,11 @@ MonoBehaviour:
   animator: {fileID: 3473272008795423790}
   gun: {fileID: 7262598955740981374}
   coin: {fileID: 1834380429455666644, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
-  HP: 10
-  speed: 7
-  playerfacespeed: 10
-  shootrate: 3
-  bullet: {fileID: 258264642691960529, guid: 4272e23e2a45a1542a095d30fe70a9fb, type: 3}
+  HP: 15
+  speed: 8
+  playerfacespeed: 11
+  shootrate: 5
+  bullet: {fileID: 8617746311363219406, guid: 80be61273cfa58849aff48e3ab1924eb, type: 3}
   shootpos: {fileID: 407869156062768893}
   isspawning: {fileID: 0}
   whereISpawnedWave: {fileID: 0}
