@@ -89,6 +89,10 @@ public class bossAI : MonoBehaviour, IDamage
                 //    phase3();
                 //}
             }
+            if(HP <= 0)
+            {
+                gameManager.instance.winMenu.SetActive(true);
+            }
         }
         
         
@@ -107,9 +111,10 @@ public class bossAI : MonoBehaviour, IDamage
         StartCoroutine(flashDamage());
         if (HP <= 0)
         {
-            //gameManager.instance.UpdateGameGoal(-1);
+            
             animator.SetBool("Phase3", false);
-            animator.SetBool("IsDead", true);  
+            animator.SetBool("IsDead", true);
+            gameManager.instance.winMenu.SetActive(true);
         }
     }
     IEnumerator flashDamage()
