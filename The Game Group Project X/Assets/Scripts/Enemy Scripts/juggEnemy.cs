@@ -31,7 +31,7 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
         runAnimation = GetComponent<Animator>();
 
 
-       // gameManager.instance.UpdateGameGoal(1);
+        // gameManager.instance.UpdateGameGoal(1);
 
     }
 
@@ -53,6 +53,10 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
 
 
         agent.SetDestination(gameManager.instance.player.transform.position);
+        if (playerInRange)
+        {
+            knockback();
+        }
 
     }
 
@@ -65,7 +69,7 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
     public void takeDamage(int amount)
     {
         Hp -= amount;
-       
+
         if (Hp <= 0)
         {
             gameManager.instance.UpdateGameGoal(-1);
@@ -85,18 +89,22 @@ public class juggEnemy : MonoBehaviour, IDamage//, IKnockback
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.cyan;
     }
-
-    private void OnCollisionEnter(Collision collision)
+    public void takeDamagAnim()
     {
-        
-    }
-    //void knockback(Vector3 dist)
-    //{
-    //    if (playerInRange)
-    //    {
-    //        gameManager.instance.player.transform.position -= dist;
-    //    }
 
-    //}
+        agent.enabled = false;
+        StopAllCoroutines();
+        //colliderSph.enabled = false;
+        //animator.SetFloat("Speed", Mathf.Lerp(animator.GetFloat("Speed"), agentVel*2, Time.deltaTime * animSpeed));
+        Destroy(gameObject);
+    }
+
+    void knockback()
+    {
+
+        gameManager.instance.player.transform.position += transform.forward * Time.deltaTime * knockbackDist;
+
+
+    }
 
 }
