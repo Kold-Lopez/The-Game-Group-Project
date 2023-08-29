@@ -20,8 +20,8 @@ public class buttonFunctions : MonoBehaviour
 
         gameManager.instance.playerScript.spawnPlayer();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
-        gameManager.instance.stateUnpaused();
+
+        resume();
     }
     public void quit()
     {

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,10 @@ public class gameManager : MonoBehaviour
     public GameObject activeMenu;
     public GameObject winMenu;
     public GameObject loseMenu;
+    public TextMeshProUGUI loseText;
+    public GameObject loseRest;
+    public GameObject loseRspn;
+    public GameObject loseQuit;
     public GameObject shopMenu;
     public LeShop currentShop;
     public TextMeshProUGUI enemiesRemainingTxt;
@@ -85,9 +91,9 @@ public class gameManager : MonoBehaviour
         enemiesRemaining += amount;
         enemiesRemainingTxt.text = enemiesRemaining.ToString("F0");
 
-        if(level2)
+        if (level2)
         {
-           
+
         }
 
         //if (enemiesRemaining <= 0 && waveManager.instance.waveCurrent == totalWaves)
@@ -99,7 +105,6 @@ public class gameManager : MonoBehaviour
 
     public void YouWin()
     {
-        statePaused();
         activeMenu = winMenu;
         activeMenu.SetActive(true);
     }
@@ -108,6 +113,10 @@ public class gameManager : MonoBehaviour
         statePaused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+        Color deathcolor = loseMenu.GetComponent<Image>().color;
+        
+        StartCoroutine(deathcolorfade(0));
+
     }
     public IEnumerator damaged()
     {
@@ -120,5 +129,32 @@ public class gameManager : MonoBehaviour
         statePaused();
         activeMenu = shopMenu;
         shopMenu.SetActive(isPaused);
+    }
+    public Color LerpColor(Color color1, Color color2, float lerpnum)
+    {
+
+        color1.r = Mathf.Lerp(color1.r, color2.r, lerpnum);
+        color1.g = Mathf.Lerp(color1.g, color2.g, lerpnum);
+        color1.b = Mathf.Lerp(color1.b, color2.b, lerpnum);
+        color1.a = Mathf.Lerp(color1.a, color2.a, lerpnum);
+        
+
+        return color1;
+    }
+    IEnumerator deathcolorfade( float lerpnum)
+    {
+        Color color1 = loseMenu.GetComponent<Image>().color;
+        Color color2 = loseText.color;
+        while (loseMenu.GetComponent<Image>().color.r != 0)
+        {
+            loseMenu.GetComponent<Image>().color= LerpColor(color1,Color.black,lerpnum);
+            loseText.color = LerpColor(color2, Color.white, lerpnum);
+
+            lerpnum = lerpnum + (float)0.01;
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+        loseQuit.SetActive(true);
+        loseRest.SetActive(true);
+        loseRspn.SetActive(true);
     }
 }
