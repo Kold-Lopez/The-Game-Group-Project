@@ -33,6 +33,11 @@ public class GunSystem : MonoBehaviour
 
     [SerializeField] bool StartActive;
     [SerializeField] bool gameStartStats;
+
+    [Header("----- Camera/Recoil Stuff -----")]
+    private Recoil recoilScript;
+    [SerializeField] GameObject cameraRotObj;
+
     private bool isReloading;
     private bool gunAmmoAdded = false;
     private int previousClipAmmo;
@@ -71,6 +76,8 @@ public class GunSystem : MonoBehaviour
             selectedGun = gunList.Count - 1;
 
         }
+
+        recoilScript = cameraRotObj.GetComponent<Recoil>();
         
     }
 
@@ -96,6 +103,10 @@ public class GunSystem : MonoBehaviour
         shootRate = gunList[selectedGun].shootRate;
         ReloadTime = (int)gunList[selectedGun].ReloadTime;
         weaponName = gunList[selectedGun].weaponDifferentiator;
+        recoilScript.recoilX = gunList[selectedGun].gunRecoilX;
+        recoilScript.recoilY = gunList[selectedGun].gunRecoilY;
+        recoilScript.recoilZ = gunList[selectedGun].gunRecoilZ;
+
         //pulling out weapon animation
 
         if (gunList[selectedGun].weaponDifferentiator == "Pistol")
@@ -167,6 +178,7 @@ public class GunSystem : MonoBehaviour
                 {
                     damageable.takeDamage(gunList[selectedGun].shootDamage);
                 }
+                recoilScript.recoilFire();
             }
             yield return new WaitForSeconds(gunList[selectedGun].shootRate);
 
@@ -267,7 +279,10 @@ public class GunSystem : MonoBehaviour
             shootRate = gun.shootRate;
             gun.maxAmmo = gun.gameStartAmmo;
             weaponName = gun.weaponDifferentiator;
-            
+            recoilScript.recoilX = gun.gunRecoilX;
+            recoilScript.recoilY = gun.gunRecoilY;
+            recoilScript.recoilZ = gun.gunRecoilZ;
+
 
             gun.currentAmmo = gun.weaponClipSize;
 

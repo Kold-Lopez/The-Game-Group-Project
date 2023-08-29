@@ -20,6 +20,10 @@ MonoBehaviour:
   maxAmmo: 35
   gameStartAmmo: 35
   ReloadTime: 3
+  noAmmo: 0
   weaponDifferentiator: Shotgun
+  gunRecoilX: -7
+  gunRecoilY: 7
+  gunRecoilZ: 0.7
   theGUN: {fileID: 395430781249513790, guid: 8bb3ecabf91c49e47a85a647acf6341b, type: 3}
   hitEffect: {fileID: 0}

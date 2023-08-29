@@ -15,11 +15,15 @@ MonoBehaviour:
   shootRate: 0.1
   shootDamage: 5
   shootDist: 200
-  currentAmmo: 24
+  currentAmmo: 30
   weaponClipSize: 30
-  maxAmmo: 8
+  maxAmmo: 30
   gameStartAmmo: 60
   ReloadTime: 2
+  noAmmo: 0
   weaponDifferentiator: Thompson
+  gunRecoilX: -2
+  gunRecoilY: 2
+  gunRecoilZ: 0.35
   theGUN: {fileID: 1063816135455577480, guid: 6423a9106e633b449a5ed0688557f3a4, type: 3}
   hitEffect: {fileID: 0}

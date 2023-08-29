@@ -12,6 +12,9 @@ public class cameraControls : MonoBehaviour
 
     [SerializeField] bool invertY;
 
+    [Header("----- PlayerObject -----")]
+    [SerializeField] GameObject player;
+
     float xRotation;
 
     void Start()
@@ -35,6 +38,6 @@ public class cameraControls : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
-        transform.parent.Rotate(Vector3.up * mouseX);
+        player.transform.Rotate(Vector3.up * mouseX);
     }
 }
