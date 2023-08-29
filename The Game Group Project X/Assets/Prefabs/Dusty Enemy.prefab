@@ -2398,7 +2398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8475890788989158791
 Transform:
   m_ObjectHideFlags: 0
@@ -2418,7 +2418,7 @@ Transform:
   - {fileID: 8022392027382335811}
   - {fileID: 7123795204687018455}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7648689706959871017
 Animator:
@@ -2455,13 +2455,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 5713389731301270233}
   agent: {fileID: 6817692031982942643}
+  animator: {fileID: 0}
+  gun: {fileID: 0}
+  coin: {fileID: 1834380429455666644, guid: 5fc7fa7793b2f0845bc618e1a7d3a7c3, type: 3}
   HP: 5
   speed: 10
   playerfacespeed: 15
   shootrate: 2
   bullet: {fileID: 3516383871599870327, guid: 87aaed694a32d23499389957df6a98eb, type: 3}
   shootpos: {fileID: 7755120649467316875}
-  isspawner: {fileID: 0}
+  isspawning: {fileID: 0}
+  whereISpawnedWave: {fileID: 0}
 --- !u!195 &6817692031982942643
 NavMeshAgent:
   m_ObjectHideFlags: 0

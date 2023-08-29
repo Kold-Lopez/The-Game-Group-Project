@@ -22,7 +22,7 @@ public class GunSystem : MonoBehaviour
 
     [Header("----- Current Gun Stats -----")]
     [SerializeField] float shootRate;
-    [SerializeField] int shootDmg;
+    public static int shootDmg;
     [SerializeField] float shootRange;
     [SerializeField] int ReloadTime;
     
